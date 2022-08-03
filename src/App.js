@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard.jsx'
 import SolutionRemote from './pages/SolutionRemote.jsx'
 import Journey from './pages/Journey.jsx'
 import Initiative from './pages/Initiative.jsx'
+import About from './pages/About.jsx'
+import NotFound from './pages/NotFound.jsx'
 import SideBar from './components/SideBar.jsx'
 import WrapperPage from './components/WrapperPage.jsx'
 import WrapperContent from './components/WrapperContent.jsx'
@@ -19,10 +21,13 @@ function App() {
           <WrapperContent>
               <NavBar />
               <Routes>
-                <Route path = "/" element = {<Dashboard />} />
-                <Route path = "/solucion remota" element = {<SolutionRemote />} />
+                <Route path = "" element = {<Dashboard />} />
+                <Route path = "/index.html" element = {<Dashboard />} />
+                <Route path = "/solucion%20remota.html" element = {<SolutionRemote />} />
+                <Route path = "/Nosotros.html" element = {<About />} />
                 <Route path = "/journey" element = {<Journey />} />
                 <Route path = "/initiative/:idInit" element = {<Initiative />} /> 
+                <Route path = "/*" element = {<NotFound />} /> 
               </Routes>
               <Footer />
           </WrapperContent>

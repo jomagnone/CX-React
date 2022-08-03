@@ -10917,6 +10917,8 @@ form.user .btn-user {
   position: relative;
   line-height: 1;
   width: 12.5rem;
+  margin-top:10%;
+  margin-bottom: 5%;
 }
 
 @-webkit-keyframes noise-anim {
@@ -11212,6 +11214,7 @@ form.user .btn-user {
 footer.sticky-footer {
   padding: 2rem 0;
   flex-shrink: 0;
+  
 }
 
 footer.sticky-footer .copyright {

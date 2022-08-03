@@ -45,7 +45,7 @@ function SideBar() {
         <div id="collapseMovil" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">Listado de Iniciativas:</h6>
-            <a className="collapse-item" href="./iniciativas/solucion remota.html" name="">Solucion Remota</a>
+            <a className="collapse-item" href="./solucion remota.html" name="">Solucion Remota</a>
             <a className="collapse-item" name="">Agenda menor 24hs</a>
             <a className="collapse-item" name="">Renstalacion Online</a>
                 
@@ -190,7 +190,7 @@ function SideBar() {
 
         {/* Sidebar Toggler (Sidebar) */}
         <div className="text-center d-none d-md-inline">
-        <button className="rounded-circle border-0" id="sidebarToggle"></button>
+            <button className="rounded-circle border-0" id="sidebarToggle" />
         </div>
 
         </ul>

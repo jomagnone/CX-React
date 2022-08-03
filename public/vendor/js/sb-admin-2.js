@@ -90,8 +90,8 @@
       $( "#autocompletar" ).val( ui.item.label );
       // redircciona al la url indicada en el value
       if (ui.item.link != "" ) {
-           //location.assign( ui.item.link );
-           window.open(ui.item.link)
+           location.assign( ui.item.link );
+           // window.open(ui.item.link)
         } else {
             CambiarSource(ui.item.value);
         }
