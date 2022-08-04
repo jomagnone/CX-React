@@ -1,198 +1,82 @@
+import SideBarHeadBrand from '../components/SideBarHeadBrand.jsx'
+import SideBarHeadItem from '../components/SideBarHeadItem.jsx'
+import SideBarDividerHeader from '../components/SideBarDividerHeader.jsx'
+import SideBarDividerElement from '../components/SideBarDividerElement.jsx'
+import SideBarDividerText from '../components/SideBarDividerText.jsx'
+
+import SideBarGroupItemSquad from './SideBarGroupItemSquad.jsx'
+import SideBarGroupItemCustom from './SideBarGroupItemCustom.jsx'
+
+import SideBarNotGroupItem from './SideBarNotGroupItem.jsx'
+import SideBarButton from './SideBarButton.jsx'
 
 function SideBar() {
     return (
     <>
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            
-        {/* Sidebar - Brand */}
-         
-        <a type ="button" className="sidebar-brand d-flex align-items-center justify-content-center" id="sidebarToggleBrand" >
-        <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-laugh-wink"></i>
-        </div>
-        <div className="sidebar-brand-text mx-3">C.X.<sup>OPR</sup></div>
-        </a>
-
-        {/* Divider */}
-        <hr className="sidebar-divider my-0" />
-
-        {/* Nav Item - Dashboard */}
-        <li className="nav-item active">
-        <a className="nav-link" href="index.html">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard Iniciativas</span></a>
-        </li>
-        <li className="nav-item active">
-        <a className="nav-link" href="index.html">
-            <i className="fas fa-fw fa-laugh"></i>
-            <span>Journey Cliente</span></a>
-        </li>
-
-        {/* Divider */}
-        <hr className="sidebar-divider" />
-
-        {/* Heading */}
-        <div className="sidebar-heading">
-        Iniciativas por SQUAD
-        </div>
-
-        {/* Nav Item - Movil Collapse Menu */}
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMovil" aria-expanded="true" aria-controls="collapseMovil">
-            <i className="fas fa-satellite-dish"></i>
-            <span>Delivery Tecnico</span>
-        </a>
-        <div id="collapseMovil" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Listado de Iniciativas:</h6>
-            <a className="collapse-item" href="./solucion remota.html" name="">Solucion Remota</a>
-            <a className="collapse-item" name="">Agenda menor 24hs</a>
-            <a className="collapse-item" name="">Renstalacion Online</a>
                 
-            </div>
-        </div>
-
-        </li>
-
-        {/* Nav Item - Red Fija Collapse Menu */}
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseftth" aria-expanded="true" aria-controls="collapseftth">
-            <i className="fas fa-code-branch"></i>
-            <span>Exp. Digital</span>
-        </a>
-        <div id="collapseftth" className="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Listado de Iniciativas:</h6>
-            <a className="collapse-item" name="">Aviso por Falla</a>
-            <a className="collapse-item" name="">Campaña OT Absorvida</a>
-            <a className="collapse-item" name="">Campaña BH Vencida</a>
-            </div>
-        </div>
-        </li>
-        {/* Nav Item - Red Fija Collapse Menu */}
-        <li className="nav-item">
-            <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseG2M" aria-expanded="true" aria-controls="collapseftth">
-            
-            <i className="fas fa-digital-tachograph"></i>
-            <span>Go 2 Market</span>
-            </a>
-            <div id="collapseG2M" className="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-                <h6 className="collapse-header">Listado de Iniciativas:</h6>
-                <a className="collapse-item" name="">Volte Fijo</a>
-                <a className="collapse-item" name="">Personal Wifi</a>
+            <SideBarHeadBrand />
         
-            </div>
-            </div>
-        </li>
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHFC" aria-expanded="true" aria-controls="collapseHFC">
-            <i className="fas fa-fw fa-network-wired"></i>
-            <span>Fuerza de Trabajo</span>
-        </a>
-        <div id="collapseHFC" className="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Listado de inciicativas:</h6>
-            <a className="collapse-item" name = "">Tarea 1</a>
-            <a className="collapse-item" name = "">Tarea 2</a>
-            <a className="collapse-item" name = "">Tarea N</a>
-            </div>
-        </div>
-        </li>
+            <SideBarDividerHeader />
 
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseprocesos" aria-expanded="true" aria-controls="collapseHFC">
-            <i className="fas fa-fw fa-brain"></i>
-            <span>Soporte / Procesos</span>
-        </a>
-        <div id="collapseprocesos" className="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Listado de inciicativas:</h6>
-            <a className="collapse-item" name = "">Tarea 1</a>
-            <a className="collapse-item" name = "">Tarea 2</a>
-            <a className="collapse-item" name = "">Tarea N</a>
-            </div>
-        </div>
-        </li>
+            <SideBarHeadItem text={"Dashboard Iniciativas"} icon={"fas fa-fw fa-tachometer-alt"} link={"index.html"} />
+            <SideBarHeadItem text={"Journey Cliente"} icon={"fas fa-fw fa-laugh"} link={"index.html"} />
+        
+            <SideBarDividerElement />
+            <SideBarDividerText text ={"Iniciativas por SQUAD"} />
 
-        {/* Divider */}
-        <hr className="sidebar-divider" />
+            <SideBarGroupItemSquad title={"Delivery Tecnico"} subtitle={"Listado de Iniciativas:"} />
+            <SideBarGroupItemSquad title={"Exp. Digital"} subtitle={"Listado de Iniciativas:"} />
+            <SideBarGroupItemSquad title={"Go 2 Market"} subtitle={"Listado de Iniciativas:"} />
+            <SideBarGroupItemSquad title={"Fuerza de Trabajo"} subtitle={"Listado de Iniciativas:"} />
+            <SideBarGroupItemSquad title={"Soporte / Procesos"} subtitle={"Listado de Iniciativas:"} />
 
-        {/* Nav Item - Informes Operativos Collapse Menu */}
-        <div className="sidebar-heading">
-        Links utiles
-        </div>
+            <SideBarDividerElement />
+            <SideBarDividerText text ={"Links utiles"} />
 
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOps" aria-expanded="true" aria-controls="collapseOps">
-            <i className="fas fa-fw fa-wrench"></i>
-            <span>Informes Operativos</span>
-        </a>
-        <div id="collapseOps" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <a className="collapse-item" href="http://10.24.5.200:8080/" target="_blank">Red Movil</a>
-            <a className="collapse-item" href="http://10.24.5.200:8080/Red-Fija/Fija/QoS%20_%20VIEWER.html" target="_blank">Red Fija</a>
-            </div>
-        </div>
-        </li>
+            <SideBarGroupItemCustom 
+                    title={"Informes Operativos"} 
+                    subtitle={"Reportes:"} 
+                    icon={"fas fa-fw fa-wrench"} 
+                    items={[
+                            {desc:"Horas de Agenda", link:"https://app.powerbi.com/view?r=eyJrIjoiZmE3MTQxNDAtMTA5MS00NTJiLTg3MGQtNTNmNTA2ODMyZDM5IiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9"},
+                            {desc:"Cumplimiento", link:"https://app.powerbi.com/view?r=eyJrIjoiZmE3MTQxNDAtMTA5MS00NTJiLTg3MGQtNTNmNTA2ODMyZDM5IiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9"},
+                            {desc:"Salud de Red", link:"https://app.powerbi.com/view?r=eyJrIjoiNmYyNDkxNGEtMTViMi00NTI5LThkNWQtMTAzZDdhODllYTBlIiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9"},
+                            {desc:"Pendientes", link:"https://app.powerbi.com/view?r=eyJrIjoiM2JjNTQ0NmYtODdmYS00OGM2LTgxYjgtM2YwODQ1Y2I3MGQyIiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9"},
+                            {desc:"Service / Padron", link:"https://app.powerbi.com/view?r=eyJrIjoiNTg1MzY0ZWQtN2ZjNC00NzFlLWEzYWYtNDI4MTFkOWRjOTMzIiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9"},
 
+                        ]} 
+                />
+            <SideBarGroupItemCustom 
+                    title={"Webs"} 
+                    subtitle={"Webs de Indicadores:"} 
+                    icon={"fas fa-globe-americas"} 
+                    items={[
+                            {desc:"Web Perfomance", link:"http://tecnica.corp.cablevision.com.ar/Operativas/Performance/Shared%20Documents/Web/index.html"},
+                            {desc:"Data analitycs", link:"http://ayr/ayr/Reportes/Lista/User"},
+                            {desc:"UnMacMe", link:"http://soc.telecom.com.ar/unmacme/"},
+                            {desc:"Quality Comander", link:"http://10.24.5.209/"},
+                            {desc:"Exelencia Opr.", link:"http://10.75.132.243/WebEO"},
+                        ]} 
+                />
 
+            <SideBarDividerElement />
+            <SideBarDividerText text ={"Biblioteca"} />
+    
+            <SideBarGroupItemCustom 
+                    title={"Iniciativas Finalizadas"} 
+                    subtitle={"listado:"} 
+                    icon={"fas fa-clipboard"} 
+                    items={[
+                            {desc:"En construccion...", link:""},
+         
+                        ]} 
+                />
+            <SideBarNotGroupItem desc={"Repositorio de Datos"} icon={"fas fa-box-open"} link={"http://tecnica.corp.cablevision.com.ar/Operativas/Performance/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2fOperativas%2fPerformance%2fShared%20Documents%2fRepositorio&FolderCTID=0x0120009D5C62F441FD4646A6584238B9CE143C"}  />
 
-        {/* Nav Item - Tables */}
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWebs" aria-expanded="true" aria-controls="collapseWebs">
-            <i className="fas fa-globe-americas"></i>
-
-            <span>Webs</span>
-        </a>
-        <div id="collapseWebs" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Webs del Area:</h6>
-            <a className="collapse-item" href="http://tecnica.corp.cablevision.com.ar/Operativas/Performance/Shared%20Documents/Web/index.html" target="_blank">Web Perfomance</a>
-            <a className="collapse-item" href="http://10.24.5.209/" target="_blank">Quality Comander</a> 
-            </div>
-        </div>
-        </li>
-
-        {/* Divider */}
-        <hr className="sidebar-divider d-none d-md-block" />
-
-
-        {/* Nav Item - Otros */}
-        <div className="sidebar-heading">
-        Otros
-        </div>
-
-        {/* Nav Item - Pages Collapse Menu */}
-        <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
-            <i className="fas fa-clipboard"></i>
-            <span>Formularios</span>
-        </a>
-        <div id="collapseForm" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div className="bg-white py-2 collapse-inner rounded">
-            
-            <a className="collapse-item" href="https://apps.powerapps.com/play/ae5304d2-fe13-440a-a1f2-52e999ad17d9?tenantId=/providers/Microsoft.PowerApps/apps/ae5304d2-fe13-440a-a1f2-52e999ad17d9" target="_blank">Mantenimiento</a>
-            <a className="collapse-item" target="_blank" href="https://apps.powerapps.com/play/bcb3e0f0-2748-4f19-aed0-1d3b514ab67c?tenantId=e0779def-eb91-4242-ae6a-f3962b1a1b5a">Usuarios WebP</a>
-            </div>
-        </div>
-        </li>
-
-        {/* Nav Item - Repositorio de Datos */}
-        <li className="nav-item">
-        <a className="nav-link" href="http://tecnica.corp.cablevision.com.ar/Operativas/Performance/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2fOperativas%2fPerformance%2fShared%20Documents%2fRepositorio&FolderCTID=0x0120009D5C62F441FD4646A6584238B9CE143C" target = "_blank">
-            <i className="fas fa-box-open"></i>
-            <span>Repositorio de Datos</span></a>
-        </li>
-
-        {/* Divider */}
-        <hr className="sidebar-divider d-none d-md-block" />
-
-        {/* Sidebar Toggler (Sidebar) */}
-        <div className="text-center d-none d-md-inline">
-            <button className="rounded-circle border-0" id="sidebarToggle" />
-        </div>
-
+            <SideBarDividerElement />
+            <SideBarButton />
+          
         </ul>
     </>
         );

@@ -2,10 +2,10 @@
 
 function CardProgress(value) {
 
-    console.log(value.value)
+   //console.log(value.value)
     return (
         <>
-   {/* Tasks Card Example */}
+   
    <div className="col-xl-4 col-md-4 mb-4">
               <div className="card border-left-info shadow h-100 py-2">
                 <div className="card-body">

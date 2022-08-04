@@ -77,7 +77,7 @@
     // crea un valor personalizado con label (texto) y value (href)
     //var el = { "label": $(this).text(), "value": $(this).find("a").attr("name") };
     var el = {"label":$(elemento).text(), "value":$(elemento).attr("name"),"link":$(elemento).attr("href") || "" };
-    console.log(el)
+    //console.log(el)
     // añádelo a la lista
     availableTags.push(el);
   });
