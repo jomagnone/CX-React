@@ -2,7 +2,7 @@
 function Journey() {
     return (
     <>
-    en construccion
+    En construccion
     </>
         );
   }

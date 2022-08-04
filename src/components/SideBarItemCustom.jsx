@@ -3,7 +3,7 @@ function SideBarItemCustom({desc, link}) {
     
     return (
      
-        <a  className="collapse-item" href={link} target={"_blank"}>{desc}</a>
+        <a  className="collapse-item" href={link} target={"_blank"} rel="noreferrer" >{desc}</a>
 
         );
   }

@@ -5,7 +5,7 @@ import SideBarItem from './SideBarItem.jsx';
 
 function SideBarGroupItemSquad({title, subtitle}) {
 
-    //console.log(DataSquads.filter(o => o.desc == title)[0].icon);
+    //console.log(DataSquads.filter(o => o.title == title)[0].icon);
 
     let replaceAll = i => i.replace(/[/. ]/g,"");
  
@@ -13,7 +13,7 @@ function SideBarGroupItemSquad({title, subtitle}) {
 
         <li className="nav-item">
         <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target={"#"+replaceAll(title)} aria-expanded="true" aria-controls={replaceAll(title)}>
-            <i className={DataSquads.filter(o => o.desc == title)[0].icon}></i>
+            <i className={DataSquads.filter(o => o.title == title)[0].icon}></i>
             <span>{title}</span>
         </a>
         <div id={replaceAll(title)} className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -21,9 +21,9 @@ function SideBarGroupItemSquad({title, subtitle}) {
             <h6 className="collapse-header">{subtitle}</h6>
             {
             
-            DataSquads.filter(o => o.desc == title)[0].initiatives.map((o,ix) => 
+            DataSquads.filter(o => o.title == title)[0].initiatives.map((o,ix) => 
                
-                <SideBarItem desc={o.desc} link={o.link} key={ix} />
+                <SideBarItem desc={o.title} link={""+o.id} key={ix} />
                 )
             
             }

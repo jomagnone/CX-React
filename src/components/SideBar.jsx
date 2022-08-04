@@ -20,7 +20,7 @@ function SideBar() {
             <SideBarDividerHeader />
 
             <SideBarHeadItem text={"Dashboard Iniciativas"} icon={"fas fa-fw fa-tachometer-alt"} link={"index.html"} />
-            <SideBarHeadItem text={"Journey Cliente"} icon={"fas fa-fw fa-laugh"} link={"index.html"} />
+            <SideBarHeadItem text={"Journey Cliente"} icon={"fas fa-fw fa-laugh"} link={"Journey"} />
         
             <SideBarDividerElement />
             <SideBarDividerText text ={"Iniciativas por SQUAD"} />
@@ -68,7 +68,7 @@ function SideBar() {
                     subtitle={"listado:"} 
                     icon={"fas fa-clipboard"} 
                     items={[
-                            {desc:"En construccion...", link:""},
+                            {desc:"En Construccion...", link:""},
          
                         ]} 
                 />

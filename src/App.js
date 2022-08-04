@@ -23,11 +23,11 @@ function App() {
               <Routes>
                 <Route path = "" element = {<Dashboard />} />
                 <Route path = "/index.html" element = {<Dashboard />} />
-                <Route path = "/solucion%20remota.html" element = {<SolutionRemote />} />
                 <Route path = "/Nosotros.html" element = {<About />} />
                 <Route path = "/journey" element = {<Journey />} />
-                <Route path = "/initiative/:idInit" element = {<Initiative />} /> 
-                <Route path = "/*" element = {<NotFound />} /> 
+                <Route path = "/:idInit" element = {<Initiative />} /> 
+                <Route path = "/*/*" element = {<NotFound />} /> 
+                
               </Routes>
               <Footer />
           </WrapperContent>
