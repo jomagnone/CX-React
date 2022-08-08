@@ -18,10 +18,10 @@ function SideBar() {
             <SideBarHeadBrand />
         
             <SideBarDividerHeader />
-
-            <SideBarHeadItem text={"Dashboard Iniciativas"} icon={"fas fa-fw fa-tachometer-alt"} link={"index.html"} />
+            
             <SideBarHeadItem text={"Journey Cliente"} icon={"fas fa-fw fa-laugh"} link={"Journey"} />
-        
+            <SideBarHeadItem text={"Dashboard Iniciativas"} icon={"fas fa-fw fa-tachometer-alt"} link={"index"} />
+           
             <SideBarDividerElement />
             <SideBarDividerText text ={"Iniciativas por SQUAD"} />
 

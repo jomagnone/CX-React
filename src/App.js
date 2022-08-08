@@ -22,11 +22,11 @@ function App() {
               <NavBar />
               <Routes>
                 <Route path = "" element = {<Dashboard />} />
-                <Route path = "/index.html" element = {<Dashboard />} />
-                <Route path = "/Nosotros.html" element = {<About />} />
+                <Route path = "/index" element = {<Dashboard />} />
+                <Route path = "/Nosotros" element = {<About />} />
                 <Route path = "/journey" element = {<Journey />} />
                 <Route path = "/:idInit" element = {<Initiative />} /> 
-                <Route path = "/*/*" element = {<NotFound />} /> 
+                <Route path = "/*" element = {<NotFound />} /> 
                 
               </Routes>
               <Footer />

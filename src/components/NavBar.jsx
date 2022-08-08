@@ -16,7 +16,7 @@ function NavBar() {
           <NavBarSearch />
       
           <NavBarItemList>
-            <NavBarItem title={"Nosotros"} icon={"fas fa-users"}  link={"Nosotros.html"} />
+            <NavBarItem title={"Nosotros"} icon={"fas fa-users"}  link={"Nosotros"} />
           </NavBarItemList>
 
         </nav>
