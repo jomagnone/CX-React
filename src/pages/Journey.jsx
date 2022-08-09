@@ -2,7 +2,12 @@
 function Journey() {
     return (
     <>
-    En construccion
+    <br />
+    <br />
+   En construccion
+   
+    <br />
+    <br />
     </>
         );
   }
