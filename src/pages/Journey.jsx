@@ -4,7 +4,7 @@ function Journey() {
     <>
     <br />
     <br />
-   En construccion
+    En construccion
    
     <br />
     <br />

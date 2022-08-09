@@ -1,5 +1,4 @@
-
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {HashRouter,BrowserRouter, Routes, Route} from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx'
 import SolutionRemote from './pages/SolutionRemote.jsx'
 import Journey from './pages/Journey.jsx'
@@ -12,9 +11,11 @@ import WrapperContent from './components/WrapperContent.jsx'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 
+
 function App() {
   return (
     < >
+      
       <BrowserRouter>
          <WrapperPage>  
           <SideBar />
@@ -32,7 +33,8 @@ function App() {
               <Footer />
           </WrapperContent>
          </WrapperPage>
-      </BrowserRouter>
+        </BrowserRouter>
+      
     </>
   );
 }
