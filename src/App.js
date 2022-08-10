@@ -27,8 +27,8 @@ function App() {
                 <Route path = "/Nosotros" element = {<About />} />
                 <Route path = "/journey" element = {<Journey />} />
                 <Route path = "/:idInit" element = {<Initiative />} /> 
-                <Route path = "/*" element = {<NotFound />} /> 
                 
+                <Route component={<NotFound />} />
               </Routes>
               <Footer />
           </WrapperContent>
