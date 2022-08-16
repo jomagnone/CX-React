@@ -18,7 +18,7 @@ function Initiative() {
 
     let initiative = {}
     try {
-      initiative = DataSquads.map(s => s.initiatives.filter(i => i.id == idInit)).filter(o => o.length >0)[0][0];
+      initiative = DataSquads.map(s => s.initiatives.filter(i => i.id === idInit)).filter(o => o.length >0)[0][0];
     } catch (error) {
       initiative="error"
     }
@@ -26,7 +26,7 @@ function Initiative() {
     return (
     <>
       {
-        initiative =="error" ?
+        initiative ==="error" ?
         <NotFound />
         :
         <WrapperContainer>

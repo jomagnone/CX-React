@@ -1,0 +1,31 @@
+
+
+
+
+.DiagramNodeContent { 
+      width: 120px;
+      height:200px;
+      background: #717EC3; 
+      border-radius: 10px;
+      padding: 5px;
+      font-size: 12px;
+      color: white }
+
+.DiagramNodeContent hr{ 
+      color: white !important;
+      margin:0.5rem;
+      background-color:white;
+      }
+
+.DiagramNodeContent ul{ 
+        margin:5px;
+        padding-left:10px
+        }
+  
+.NodeContentTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+
+}
+
