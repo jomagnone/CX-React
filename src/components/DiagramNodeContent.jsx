@@ -7,7 +7,7 @@ import '../styles/DiagramNodeContent.css'
             <div className="NodeContentTitle">{props.data.title}</div>
             <hr />
             <ul>
-              {props.data.items.map((i) => <li>{i}</li>)}
+              {props.data.items.map((o,ix) => <li key={ix}>{o}</li>)}
             </ul>
         </div>
       );

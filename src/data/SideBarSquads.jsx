@@ -3,7 +3,7 @@
 const DataSquads = [
     {   id:"d47529b8aabd",
         title:"Delivery Tecnico",
-        icon:"fas fa-satellite-dish",
+        icon:"fas fa-truck-fast",
         initiatives:[
                     {
                         id:"fa536b",
@@ -57,7 +57,7 @@ const DataSquads = [
    
     {   id:"dd8cfcbd5c9d",
         title:"Exp. Digital",
-        icon:"fas fa-code-branch",
+        icon:"fas fa-laptop",
         initiatives:[
                     {
                         id:"0aae85",
@@ -108,7 +108,7 @@ const DataSquads = [
     },
     {   id:"1d14ae889efe",
         title:"Go 2 Market",
-        icon:"fas fa-digital-tachograph",
+        icon:"fas fa-store",
         initiatives:[
                     {
                         id:"99f8c5",
@@ -146,7 +146,7 @@ const DataSquads = [
 
     {   id:"2e2f0ae6b85d",
         title:"Fuerza de Trabajo",
-        icon:"fas fa-fw fa-network-wired",
+        icon:"fas fa-person-digging",
         initiatives:[
                     {
                         id:"2f1fb4",

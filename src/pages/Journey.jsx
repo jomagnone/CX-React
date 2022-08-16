@@ -27,21 +27,13 @@ const initialSchema = createSchema({
       
     ],
     links: [
-  
-
       { input: 'pre-1',  output: 'pre-2', readonly: false },
-
       { input: 'pre-2',  output: 'arrow-1', readonly: false },
       { input: 'arrow-1',  output: 'visit-1', readonly: false },
-
       { input: 'visit-1',  output: 'visit-2', readonly: false },
-
       { input: 'visit-2',  output: 'arrow-2', readonly: false },
       { input: 'arrow-2',  output: 'post-1', readonly: false },
-
-      { input: 'post-1',  output: 'post-2', readonly: false },
-   
-     
+      { input: 'post-1',  output: 'post-2', readonly: false }, 
     ]
   });
 
@@ -49,7 +41,7 @@ const initialSchema = createSchema({
 function Journey() {
         
     const [schema, { onChange }] = useSchema(initialSchema);
-    console.log(DataJourneyPre)
+   
     return (
     <>
         <WrapperContainer>
