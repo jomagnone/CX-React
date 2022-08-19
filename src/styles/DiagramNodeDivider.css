@@ -1,0 +1,18 @@
+
+
+.DiagramNodeVerticalDivider{
+  border-style: dashed;
+  border-width: 0.5px;
+  width:0px;
+  height:600px
+ 
+}
+
+
+.DiagramNodeHorizontalDivider{
+  border-style: ridge ;
+  border-width: 1px;
+  width:1000px;
+  height:0px
+ 
+}

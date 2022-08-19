@@ -1,0 +1,25 @@
+
+.DiagramNode {
+
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+.DiagramNodeIcon {
+  font-size: 40px;
+  color:#3F65D4;
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+.DiagramNodeText {
+  font-weight: 600;
+  width: 120px;
+  margin-left: -20px;
+  margin-right: -20px;
+  text-align: center;
+  overflow: hidden
+}

@@ -4,36 +4,62 @@ import ContairnerHeader from '../components/ContairnerHeader.jsx'
 import CardEmpy from '../components/CardEmpy.jsx'
 import Diagram , { useSchema,createSchema } from 'beautiful-react-diagrams';
 import 'beautiful-react-diagrams/styles.css';
-import {DataJourneyPre, DataJourneyVisit, DataJourneyPost} from '../data/Journey.jsx'
 import DiagramNodeHeader from '../components/DiagramNodeHeader.jsx'
-import DiagramNodeContent from '../components/DiagramNodeContent.jsx'
-import DiagramNodeArrow from '../components/DiagramNodeArrow.jsx'
-
-
+import DiagramNodeIcon from '../components/DiagramNodeIcon.jsx'
+import DiagramNodeVerticalDivider from '../components/DiagramNodeVerticalDivider.jsx'
+import DiagramNodeHorizontalDivider from '../components/DiagramNodeHorizontalDivider.jsx'
+import DiagramNodeKPI from '../components/DiagramNodeKPI.jsx'
+import DiagramNodeSide from '../components/DiagramNodeSide.jsx'
 
 const initialSchema = createSchema({
     nodes: [
-      { id: 'pre', content: 'PRE VISITA', coordinates: [20, 30], render:DiagramNodeHeader },
-      { id: 'visit', content: 'VISITA', coordinates: [340, 30], render:DiagramNodeHeader },
-      { id: 'post', content: 'POST VISITA', coordinates: [660, 30], render:DiagramNodeHeader },
-      { id: 'pre-1', data:DataJourneyPre[0],coordinates: [40, 70], render: DiagramNodeContent},
-      { id: 'pre-2', data:DataJourneyPre[1],coordinates: [180, 70], render: DiagramNodeContent},
-      { id: 'arrow-1',coordinates: [305, 130], render: DiagramNodeArrow},
-      { id: 'visit-1', data:DataJourneyVisit[0],coordinates: [360, 70], render: DiagramNodeContent},
-      { id: 'visit-2', data:DataJourneyVisit[1],coordinates: [500, 70], render: DiagramNodeContent},
-      { id: 'arrow-2',coordinates: [625, 130], render: DiagramNodeArrow},
-      { id: 'post-1', data:DataJourneyPost[0],coordinates: [680, 70], render: DiagramNodeContent},
-      { id: 'post-2', data:DataJourneyPost[1],coordinates: [820, 70], render: DiagramNodeContent},
-      
+   
+      // headers
+      { id: 'pre', content: 'PRE VISITA', coordinates: [50, 10], render:DiagramNodeHeader ,disableDrag: true},
+      { id: 'visit', content: 'VISITA', coordinates: [380, 10], render:DiagramNodeHeader ,disableDrag: true},
+      { id: 'post', content: 'POST VISITA', coordinates: [710, 10], render:DiagramNodeHeader ,disableDrag: true},
+      { id: 'macro', content: 'MACRO', coordinates: [-25, 300], render:DiagramNodeSide ,disableDrag: true},
+      { id: 'micro', content: 'MICRO', coordinates: [-25, 500], render:DiagramNodeSide ,disableDrag: true},
+      // lineas divisorias
+      { id: 'div-v-1', coordinates: [365, 30],disableDrag: true, render:DiagramNodeVerticalDivider },
+      { id: 'div-v-2', coordinates: [695, 30],disableDrag: true, render:DiagramNodeVerticalDivider },
+      { id: 'div-h-1', coordinates: [20, 250],disableDrag: true, render:DiagramNodeHorizontalDivider },
+      { id: 'div-h-2', coordinates: [20, 380],disableDrag: true, render:DiagramNodeHorizontalDivider },
+      // Iconos Journey
+      { id: '1',coordinates: [50, 60], render: DiagramNodeIcon, data:{icon:'fa-solid fa-calendar-check', desc:'Agenda'},disableDrag: true,inputs: [{ id: '1-1', alignment: 'left' }], outputs: [{ id: '1-2', alignment: 'right' }]},
+      { id: '2',coordinates: [160, 150], render: DiagramNodeIcon, data:{icon:'fa-solid fa-blender-phone', desc:'Licuadora'},disableDrag: true,inputs: [{ id: '2-1', alignment: 'left' }], outputs: [{ id: '2-2', alignment: 'right' }]},
+      { id: '3',coordinates: [270, 60], render: DiagramNodeIcon, data:{icon:'fa-solid fa-address-book', desc:'Previsita'},disableDrag: true,inputs: [{ id: '3-1', alignment: 'left' }], outputs: [{ id: '3-2', alignment: 'right' }]},
+      { id: '4',coordinates: [380, 150], render: DiagramNodeIcon, data:{icon:'fa-solid fa-calendar-check', desc:'Cumplimiento'},disableDrag: true,inputs: [{ id: '4-1', alignment: 'left' }], outputs: [{ id: '4-2', alignment: 'right' }]},
+      { id: '5',coordinates: [490, 60], render: DiagramNodeIcon, data:{icon:'fa-solid fa-triangle-exclamation', desc:'Incumplimiento'},disableDrag: true,inputs: [{ id: '5-1', alignment: 'left' }], outputs: [{ id: '5-2', alignment: 'right' }]},
+      { id: '6',coordinates: [600, 150], render: DiagramNodeIcon, data:{icon:'fa-solid fa-arrows-turn-to-dots', desc:'Derivaciones'},disableDrag: true,inputs: [{ id: '6-1', alignment: 'left' }], outputs: [{ id: '6-2', alignment: 'right' }]},
+      { id: '7',coordinates: [710, 60], render: DiagramNodeIcon, data:{icon:'fa-solid fa-phone', desc:'Post Visita'},disableDrag: true,inputs: [{ id: '7-1', alignment: 'left' }], outputs: [{ id: '7-2', alignment: 'right' }]},
+      { id: '8',coordinates: [820, 150], render: DiagramNodeIcon, data:{icon:'fa-solid fa-ban', desc:'Evitables'},disableDrag: true,inputs: [{ id: '8-1', alignment: 'left' }], outputs: [{ id: '8-2', alignment: 'right' }]},
+      { id: '9',coordinates: [930, 60], render: DiagramNodeIcon, data:{icon:'fa-solid fa-person-walking-arrow-loop-left', desc:'Reiterado \n Garantia'},disableDrag: true,inputs: [{ id: '9-1', alignment: 'left' }], outputs: [{ id: '9-2', alignment: 'right' }]},
+      { id: '10',coordinates: [1040, 150], render: DiagramNodeIcon, data:{icon:'fa-solid fa-face-meh', desc:'NPS'},disableDrag: true,inputs: [{ id: '10-1', alignment: 'left' }], outputs: [{ id: '10-2', alignment: 'right' }] },
+      // KPIs Macro
+      { id: 'k1', coordinates: [45, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Prom. Horas de Agenda", value:"46.2 hs"}},
+      { id: 'k2', coordinates: [155, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Cancelacion proactiva", value:"7.2 %"}},
+      { id: 'k3', coordinates: [265, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Visitas confirmadas", value:"65.3 %"}},
+      { id: 'k4', coordinates: [375, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Cumplimiento", value:"72.0 %"}},
+      { id: 'k5', coordinates: [485, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Srv Incumplido", value:"15.9 %"}},
+      { id: 'k6', coordinates: [595, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Derivaciones", value:"12.3 %"}},
+      { id: 'k7', coordinates: [705, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Mala calidad post Visita", value:"9.6 %"}},
+      { id: 'k8', coordinates: [815, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Srv Evitables", value:"11.1 %"}},
+      { id: 'k9', coordinates: [925, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Srv con revisita en 30d", value:"20.8 %"}},
+      // KPIs Opr
+
     ],
-    links: [
-      { input: 'pre-1',  output: 'pre-2', readonly: false },
-      { input: 'pre-2',  output: 'arrow-1', readonly: false },
-      { input: 'arrow-1',  output: 'visit-1', readonly: false },
-      { input: 'visit-1',  output: 'visit-2', readonly: false },
-      { input: 'visit-2',  output: 'arrow-2', readonly: false },
-      { input: 'arrow-2',  output: 'post-1', readonly: false },
-      { input: 'post-1',  output: 'post-2', readonly: false }, 
+    links: [   
+        { input: '1-2',  output: '2-1', readonly: false},
+        { input: '2-2',  output: '3-1', readonly: false },
+        { input: '3-2',  output: '4-1', readonly: false },
+        { input: '4-2',  output: '5-1', readonly: false },
+        { input: '5-2',  output: '6-1', readonly: false },
+        { input: '6-2',  output: '7-1', readonly: false },
+        { input: '7-2',  output: '8-1', readonly: false },
+        { input: '8-2',  output: '9-1', readonly: false },
+        { input: '9-2',  output: '10-1', readonly: false },
+        
     ]
   });
 
@@ -49,7 +75,7 @@ function Journey() {
             <WrapperRow>
     
                 <CardEmpy>
-                    <div style={{ height: '22.5rem' }}>
+                    <div style={{ height: '40.5rem' }}>
                         <Diagram schema={schema} onChange={onChange} />
                     </div>
                 </CardEmpy>

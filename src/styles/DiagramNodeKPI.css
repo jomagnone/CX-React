@@ -1,0 +1,25 @@
+
+
+.DiagramNodeKPI { 
+      width: 90px;
+      height:auto;
+      background: #607493; 
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 12px;
+      text-align: center;
+      color: whitesmoke }
+
+.DiagramNodeKPI hr { 
+            margin:5px 0px;
+            font-size: 12px;
+            text-align: center;
+            background-color: white;
+            color: white }
+  
+.NodeContentTitle {
+      font-size:500;
+      
+
+}
+
