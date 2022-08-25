@@ -12,6 +12,8 @@ import DiagramNodeKPI from '../components/DiagramNodeKPI.jsx'
 import DiagramNodeSide from '../components/DiagramNodeSide.jsx'
 import DiagramNodeList from '../components/DiagramNodeList.jsx'
 
+import {FetchIssue} from '../utils/FetchJira.jsx'
+import { useEffect, useState } from 'react';
 
 const initialSchema = createSchema({
     nodes: [
@@ -49,15 +51,15 @@ const initialSchema = createSchema({
       { id: 'k8', coordinates: [815, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Srv Evitables", value:"11.1 %"}},
       { id: 'k9', coordinates: [925, 270],disableDrag: true, render:DiagramNodeKPI, data:{desc:"Srv con revisita en 30d", value:"20.8 %"}},
       // KPIs Opr - linea 1
-      { id: 'k1', coordinates: [45, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cl. en agenda: 16%"] }},
-      { id: 'k2', coordinates: [155, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% Anuladas: 20%", "% Sol. Online: 16%"] }},
-      { id: 'k3', coordinates: [265, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% llamados: 20%", "% llamadas con resp.: 16%","% Confirmada: 22%"] }},
-      { id: 'k4', coordinates: [375, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cumpl. de una: 20%", "Cump en BH: 16%"] }},
-      { id: 'k5', coordinates: [485, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cl. con reagenda: 20%", "Cl con agenda >7d: 6%","Errores en motivos inc: 12%", "Cli. Referidos: 11%", "Cancelado: 25%","Motivos Inc: 22%"] }},
-      { id: 'k6', coordinates: [595, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% Pase a Red: 10%","% Pase a Edif: 12%","% Pase a Inst: 20%"] }},
-      { id: 'k7', coordinates: [705, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% llamadas: 20%", "% llamadas con Resp: 16%"] }},
-      { id: 'k8', coordinates: [815, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["%Truck roll: 5.3%"] }},
-      { id: 'k9', coordinates: [925, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Srv Reiterado: 20%", "Garantia inst: 16%"] }},
+      { id: 'k11', coordinates: [45, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cl. en agenda: 16%"] }},
+      { id: 'k12', coordinates: [155, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% Anuladas: 20%", "% Sol. Online: 16%"] }},
+      { id: 'k13', coordinates: [265, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% llamados: 20%", "% llamadas con resp.: 16%","% Confirmada: 22%"] }},
+      { id: 'k14', coordinates: [375, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cumpl. de una: 20%", "Cump en BH: 16%"] }},
+      { id: 'k15', coordinates: [485, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Cl. con reagenda: 20%", "Cl con agenda >7d: 6%","Errores en motivos inc: 12%", "Cli. Referidos: 11%", "Cancelado: 25%","Motivos Inc: 22%"] }},
+      { id: 'k16', coordinates: [595, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% Pase a Red: 10%","% Pase a Edif: 12%","% Pase a Inst: 20%"] }},
+      { id: 'k17', coordinates: [705, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["% llamadas: 20%", "% llamadas con Resp: 16%"] }},
+      { id: 'k18', coordinates: [815, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["%Truck roll: 5.3%"] }},
+      { id: 'k19', coordinates: [925, 400],disableDrag: true, render:DiagramNodeList, data:{kpis:["Srv Reiterado: 20%", "Garantia inst: 16%"] }},
  
     ],
     links: [   
@@ -76,7 +78,20 @@ const initialSchema = createSchema({
 
 
 function Journey() {
-        
+    
+    const [prueba, setPrueba] = useState([]);
+
+    useEffect(() => {
+
+        FetchIssue()
+            .then( result => {setPrueba(result);
+                    console.log(result);})
+            .catch(error => console.log(error)) ; 
+        }, []);
+
+
+   
+
     const [schema, { onChange }] = useSchema(initialSchema);
    
     return (
