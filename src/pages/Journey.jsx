@@ -82,11 +82,6 @@ function Journey() {
     const [prueba, setPrueba] = useState([]);
 
 
-    const JQL = 'project="ODT"%26status!="Finalizado"%26issuetype="Epic"'
-    const fields = "key,summary"
-    const epic = 'Cumplimiento de SVC'
-   
-
     useEffect(() => {
       
         FetchAllEpic("ODT")

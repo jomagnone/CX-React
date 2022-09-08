@@ -44,8 +44,7 @@ export const FetchEpic = async (epic) => {
                   obj['issues'] = r;
                   r.map((i,ix) => FetchSubsTaskFromIssue(i.key)
                       .then(r => {obj.issues[ix]['subtask'] = r
-                                  obj.issues[ix]['avanceIssue']= r.avanceAllSubtask
-                                  { r.subtask.length == 0 && (obj.issues[ix].status === "Done" || obj.issues[ix].status === "Finalizado")
+                                  { r.subtaskList.length == 0 && (obj.issues[ix].status === "Done" || obj.issues[ix].status === "Finalizado")
                                     ? obj.issues[ix]['avanceIssue'] = 100 
                                     : obj.issues[ix]['avanceIssue']= r.avanceAllSubtask
                                     }
@@ -91,7 +90,7 @@ export const FetchSubsTaskFromIssue = async (issue) => {
   let reponse = await api.get('search?jql=issuetype="Sub-task"%26parent="'+issue+'"&fields=key,summary,status')
 
   var object ={}
-  object.subtask = reponse.data.issues.map(x => {
+  object.subtaskList = reponse.data.issues.map(x => {
     var obj = {};
     obj['key'] = x.key;
     obj['desc'] = x.fields.summary;
@@ -101,7 +100,7 @@ export const FetchSubsTaskFromIssue = async (issue) => {
      } 
     )
     object.parent = issue;
-    object.avanceAllSubtask= parseInt((object.subtask.filter(x => x.status != "Done" && x.status == "Finalizado").length / object.subtask.length)*100)
+    object.avanceAllSubtask= parseInt((object.subtaskList.filter(x => x.status != "Done" && x.status == "Finalizado").length / object.subtaskList.length)*100)
     object.avanceAllSubtask = object.avanceAllSubtask ? object.avanceAllSubtask : 0
     return object;
 
