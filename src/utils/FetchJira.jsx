@@ -42,12 +42,24 @@ export const FetchEpic = async (epic) => {
     FetchAllIssuesFromEpic(reponse.data.fields.summary)
           .then(r => {
                   obj['issues'] = r;
-                  obj['avance'] = (parseInt((r.filter(st => st.status == "Done" || st.status == "Finalizado").length / r.length)*100));
+                  r.map((i,ix) => FetchSubsTaskFromIssue(i.key)
+                      .then(r => {obj.issues[ix]['subtask'] = r
+                                  obj.issues[ix]['avanceIssue']= r.avanceAllSubtask
+                                  { r.subtask.length == 0 && (obj.issues[ix].status === "Done" || obj.issues[ix].status === "Finalizado")
+                                    ? obj.issues[ix]['avanceIssue'] = 100 
+                                    : obj.issues[ix]['avanceIssue']= r.avanceAllSubtask
+                                    }
+                            })
+                      .catch(e => console.log(e)))
+                  obj['avanceEpic'] = (parseInt((r.filter(st => st.status == "Done" || st.status == "Finalizado").length / r.length)*100));
                   obj['pending'] = (r.filter(st => st.status != "Done" && st.status != "Finalizado").length );
+                 
+                 
                 })
           .catch(e => console.log(e))
     obj['kr'] ="Operacion Digital"
-          
+    
+
     return obj;
   
 }
@@ -62,7 +74,6 @@ export const FetchAllIssuesFromEpic = async (epic_link) => {
           obj['key'] = x.key;
           obj['desc'] = x.fields.summary;
           obj['status'] = x.fields.status.name;
-          obj['avance'] = x.fields.status.name ==="Finalizado" || "Done" ? "100%" : null;
           obj['iconStatus'] = "success";
           return obj;
       }
@@ -73,11 +84,25 @@ export const FetchAllIssuesFromEpic = async (epic_link) => {
 }
 
 
-// ODT-21
+
+// uso interno
 export const FetchSubsTaskFromIssue = async (issue) => {
 
-  //let reponse = await api.get('issue/'+issue+'/subtask')
-  let reponse = await api.get('https://gestioncio.telecom.com.ar/rest/api/2/issue/ODT-21/subtask')
-    return reponse;
-  
+  let reponse = await api.get('search?jql=issuetype="Sub-task"%26parent="'+issue+'"&fields=key,summary,status')
+
+  var object ={}
+  object.subtask = reponse.data.issues.map(x => {
+    var obj = {};
+    obj['key'] = x.key;
+    obj['desc'] = x.fields.summary;
+    obj['status'] = x.fields.status.name;
+   
+    return obj;
+     } 
+    )
+    object.parent = issue;
+    object.avanceAllSubtask= parseInt((object.subtask.filter(x => x.status != "Done" && x.status == "Finalizado").length / object.subtask.length)*100)
+    object.avanceAllSubtask = object.avanceAllSubtask ? object.avanceAllSubtask : 0
+    return object;
+
 }

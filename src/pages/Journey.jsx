@@ -88,16 +88,17 @@ function Journey() {
    
 
     useEffect(() => {
+      
+        FetchAllEpic("ODT")
+            .then( result => {setPrueba(result);
+                    console.log(result);})
+            .catch(error => console.log(error)) ; 
+         
         FetchEpic("ODT-12")
         .then( result => {setPrueba(result);
                 console.log(result);})
         .catch(error => console.log(error));
-
-        FetchSubsTaskFromIssue("ODT-21")
-            .then( result => {setPrueba(result);
-                    console.log(result);})
-            .catch(error => console.log(error)) ; 
-       
+        
         }, []);
 
 
