@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "homepage": ".",
- 
+  "proxy": "https://gestioncio.telecom.com.ar/rest/api/2/",
   "dependencies": {
     "@babel/runtime": "^7.18.9",
     "@testing-library/jest-dom": "^5.16.4",
