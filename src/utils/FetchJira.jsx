@@ -11,34 +11,6 @@ api.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
 
 
-
-export const FetchIssue = async (issue) => {
-  let reponse = await api.get('issue/'+issue)
-    return reponse.data;
-  
-}
-
-
-
-export const FetchJQL = async (JQL, fields) => {
-  let reponse = await api.get('search?jql='+JQL+'&fields='+fields)
-  
-   const object = reponse.data.issues.map(x => {
-          var obj = {};
-          obj['key'] = x.key;
-          obj['valor'] = x.fields.summary;
-          return obj;
-      }
-    
-    )
-    return object;
-  
-}
-
-
-const JQL = 'project="ODT"%26status!="Finalizado"%26issuetype="Epic"'
-const fields = "key,customfield_10377,status,project,issuetype,summary"
-
 export const FetchAllEpic = async (proyect) => {
   let reponse = await api.get('search?jql=project="'+proyect+'"%26status!="Finalizado"%26issuetype="Epic"&fields=key,summary')
   
@@ -54,17 +26,40 @@ export const FetchAllEpic = async (proyect) => {
   
 }
 
-export const FetchAllIssuesFromEpic = async (epic) => {
-  let reponse = await api.get('search?jql="Epic Link"="'+epic+'"')
+
+
+// '"ODT-12"'
+export const FetchEpic = async (epic) => {
+  let reponse = await api.get('issue/'+epic)
   
+  var obj = {};
+    obj['key'] = reponse.data.key;
+    obj['title'] = reponse.data.fields.summary;
+    obj['desc'] = reponse.data.fields.description;
+    obj['status'] = reponse.data.fields.status.name;
+  
+  
+    
+    return obj;
+  
+}
+
+
+
+export const FetchAllIssuesFromEpic = async (epic) => {
+  let reponse = await api.get('search?jql="Epic Link"="'+epic+'"&fields=key,summary,status')
+  console.log(reponse)
    const object = reponse.data.issues.map(x => {
           var obj = {};
           obj['key'] = x.key;
-          obj['valor'] = x.fields.summary;
+          obj['desc'] = x.fields.summary;
+          obj['status'] = x.fields.status.name;
+          obj['avance'] = x.fields.status.name ==="Finalizado" || "Done" ? "100%" : null;
+          obj['iconStatus'] = "success";
           return obj;
       }
-    
     )
+    
     return object;
   
 }

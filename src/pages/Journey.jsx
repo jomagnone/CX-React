@@ -12,7 +12,7 @@ import DiagramNodeKPI from '../components/DiagramNodeKPI.jsx'
 import DiagramNodeSide from '../components/DiagramNodeSide.jsx'
 import DiagramNodeList from '../components/DiagramNodeList.jsx'
 
-import {FetchIssue, FetchJQL, FetchAllEpic,FetchAllIssuesFromEpic} from '../utils/FetchJira.jsx'
+import {FetchIssue, FetchJQL, FetchAllEpic,FetchAllIssuesFromEpic, FetchEpic} from '../utils/FetchJira.jsx'
 import { useEffect, useState } from 'react';
 
 const initialSchema = createSchema({
@@ -89,7 +89,7 @@ function Journey() {
 
     useEffect(() => {
 
-        FetchAllIssuesFromEpic('Cumplimiento de SVC')
+        FetchAllEpic("ODT")
             .then( result => {setPrueba(result);
                     console.log(result);})
             .catch(error => console.log(error)) ; 
