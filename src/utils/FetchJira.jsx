@@ -29,79 +29,74 @@ export const FetchAllEpic = async (proyect) => {
 
 
 
-// '"ODT-12"'
+
 // para hoja de inciativa
-export const FetchEpic = async (epic) => {
+export const FetchEpicWithoutSubtask = async (epic) => {
   let reponse = await api.get('issue/'+epic)
-  
-  var obj = {};
+
+  let obj = {};
     obj['key'] = reponse.data.key;
     obj['title'] = reponse.data.fields.summary;
     obj['desc'] = reponse.data.fields.description;
     obj['status'] = reponse.data.fields.status.name;
-    FetchAllIssuesFromEpic(reponse.data.fields.summary)
-          .then(r => {
-                  obj['issues'] = r;
-                  r.map((i,ix) => FetchSubsTaskFromIssue(i.key)
-                      .then(r => {obj.issues[ix]['subtask'] = r
-                                  { r.subtaskList.length == 0 && (obj.issues[ix].status === "Done" || obj.issues[ix].status === "Finalizado")
-                                    ? obj.issues[ix]['avanceIssue'] = 100 
-                                    : obj.issues[ix]['avanceIssue']= r.avanceAllSubtask
-                                    }
-                            })
-                      .catch(e => console.log(e)))
-                  obj['avanceEpic'] = (parseInt((r.filter(st => st.status == "Done" || st.status == "Finalizado").length / r.length)*100));
-                  obj['pending'] = (r.filter(st => st.status != "Done" && st.status != "Finalizado").length );
-                 
-                 
-                })
-          .catch(e => console.log(e))
-    obj['kr'] ="Operacion Digital"
-    
+    obj['kr'] ="Operacion Digital";
 
-    return obj;
-  
-}
-
-
-// uso interno
-export const FetchAllIssuesFromEpic = async (epic_link) => {
-  let reponse = await api.get('search?jql="Epic Link"="'+epic_link+'"&fields=key,summary,status')
+    let reponseIssues = await api.get('search?jql="Epic Link"="'+obj['title']+'"&fields=key,summary,status')
  
-   const object = reponse.data.issues.map(x => {
-          var obj = {};
-          obj['key'] = x.key;
-          obj['desc'] = x.fields.summary;
-          obj['status'] = x.fields.status.name;
-          obj['iconStatus'] = "success";
-          return obj;
-      }
-    )
+    const issues = reponseIssues.data.issues.map(x => {
+           let issue = {};
+           issue['key'] = x.key;
+           issue['desc'] = x.fields.summary;
+           issue['status'] = x.fields.status.name;
+           issue['iconStatus'] = "success";
+           return issue;
+       }
+     )
+
+    obj['issues'] = issues;
+
+    obj['avanceEpic'] = ''+(parseInt((issues.filter(st => st.status === "Done" || st.status === "Finalizado").length / issues.length)*100))+'%';
+    obj['avanceEpic'] = obj['avanceEpic'] === "NaN%" ? "0%" :obj['avanceEpic'] 
     
-    return object;
+    obj['pending'] =''+(issues.filter(st => st.status !== "Done" && st.status !== "Finalizado").length );
+                 
+                 
+
+    return obj;
   
 }
 
 
 
-// uso interno
-export const FetchSubsTaskFromIssue = async (issue) => {
 
-  let reponse = await api.get('search?jql=issuetype="Sub-task"%26parent="'+issue+'"&fields=key,summary,status')
+// para avance de los issue
+export const FetchIssueAvance = async (issue) => {
 
-  var object ={}
+  let reponse = await api.get('search?jql=issuetype="Sub-task"%26parent="'+issue.key+'"&fields=key,summary,status')
+  let object ={}
   object.subtaskList = reponse.data.issues.map(x => {
-    var obj = {};
-    obj['key'] = x.key;
-    obj['desc'] = x.fields.summary;
-    obj['status'] = x.fields.status.name;
-   
-    return obj;
+      var obj = {};
+      obj['key'] = x.key;
+      obj['desc'] = x.fields.summary;
+      obj['status'] = x.fields.status.name;
+    
+      return obj;
      } 
     )
-    object.parent = issue;
-    object.avanceAllSubtask= parseInt((object.subtaskList.filter(x => x.status != "Done" && x.status == "Finalizado").length / object.subtaskList.length)*100)
-    object.avanceAllSubtask = object.avanceAllSubtask ? object.avanceAllSubtask : 0
-    return object;
+    object.parent = issue.key;
+    object.desc = issue.desc;
+    object.status = issue.status;
+    object.avanceAllSubtask= ''+parseInt((object.subtaskList.filter(x => x.status !== "Done" && x.status === "Finalizado").length / object.subtaskList.length)*100)+"%"
+    object.avanceAllSubtask = object.avanceAllSubtask === "NaN%" && (object.status === "Finalizado" || object.status === "Done") ? "100%" : object.avanceAllSubtask
+    object.avanceAllSubtask = object.avanceAllSubtask === "NaN%" && (object.status !== "Finalizado" && object.status !== "Done") ? "0%" : object.avanceAllSubtask
+    
+    object.avanceIssue = object.subtaskList.length === 0 && (object.status === "Finalizado" || object.status === "Done") ? "100%" : object.avanceAllSubtask
+    object.avanceIssue = object.avanceAllSubtask === "100%" && (object.status !== "Finalizado" && object.status !== "Done") ? "99%" : object.avanceAllSubtask
+    //console.log(object)
+    return object.avanceIssue;
 
 }
+
+
+
+

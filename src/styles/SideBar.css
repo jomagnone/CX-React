@@ -1,0 +1,11 @@
+.loadingDots{
+  align-items: center;
+  align-self: center;
+
+
+}
+
+.wraperLoading{
+  display: flex;
+  justify-content: center;
+}

@@ -12,8 +12,6 @@ import DiagramNodeKPI from '../components/DiagramNodeKPI.jsx'
 import DiagramNodeSide from '../components/DiagramNodeSide.jsx'
 import DiagramNodeList from '../components/DiagramNodeList.jsx'
 
-import {FetchIssue, FetchJQL, FetchAllEpic,FetchAllIssuesFromEpic, FetchEpic, FetchSubsTaskFromIssue} from '../utils/FetchJira.jsx'
-import { useEffect, useState } from 'react';
 
 const initialSchema = createSchema({
     nodes: [
@@ -79,22 +77,7 @@ const initialSchema = createSchema({
 
 function Journey() {
     
-    const [prueba, setPrueba] = useState([]);
-
-
-    useEffect(() => {
-      
-        FetchAllEpic("ODT")
-            .then( result => {setPrueba(result);
-                    console.log(result);})
-            .catch(error => console.log(error)) ; 
-         
-        FetchEpic("ODT-12")
-        .then( result => {setPrueba(result);
-                console.log(result);})
-        .catch(error => console.log(error));
-        
-        }, []);
+   
 
 
    

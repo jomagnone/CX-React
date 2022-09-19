@@ -6,7 +6,7 @@ const DataSquads = [
         icon:"fas fa-truck-fast",
         initiatives:[
                     {
-                        id:"fa536b",
+                        id:"ODT-12",
                         title:"Solucion Remota",
                         progress: "70%",
                         kr: "Operacion Digital",
@@ -38,7 +38,7 @@ const DataSquads = [
                         
                     },
                     {
-                        id:"aaf6ea",
+                        id:"ODT-14",
                         title:"Renstalacion Online",
                         progress: "75%",
                         kr: "Operacion Digital",

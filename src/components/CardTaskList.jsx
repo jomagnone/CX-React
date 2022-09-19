@@ -1,9 +1,14 @@
 import CardTaskItem from '../components/CardTaskItem.jsx'
 
+
+
 function CardTaskList({task}) {
 
+      
+       
+      
     return (
-          
+     
         <>
             <div className="col-lg-12">
                   <div className="card mb-4">
@@ -12,14 +17,14 @@ function CardTaskList({task}) {
                         </div>
                         <div className="card-body">
                              {
-                                   task.map((t,ix) => 
-                                    <CardTaskItem key={ix} task={t.title} value ={t.progress} status={t.status}/>
-                                    )
+                                   task.map((t,ix) => <CardTaskItem key={ix} issue={t} /> )
+                                   
                              } 
                         </div>
                   </div>
             </div>
         </>
+        
         );
   }
   

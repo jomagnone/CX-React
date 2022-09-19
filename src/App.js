@@ -9,12 +9,12 @@ import WrapperPage from './components/WrapperPage.jsx'
 import WrapperContent from './components/WrapperContent.jsx'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
-
+import EpicContextProvider from './contexts/EpicContext.jsx'
 
 function App() {
   return (
     < >
-      
+      <EpicContextProvider>
       <BrowserRouter>
          <WrapperPage>  
           <SideBar />
@@ -33,7 +33,7 @@ function App() {
           </WrapperContent>
          </WrapperPage>
         </BrowserRouter>
-      
+        </EpicContextProvider>
     </>
   );
 }

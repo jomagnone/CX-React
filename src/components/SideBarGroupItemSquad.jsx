@@ -1,14 +1,56 @@
 import DataSquads from '../data/SideBarSquads.jsx'
 import SideBarItem from './SideBarItem.jsx';
-
-
+import {FetchAllEpic} from '../utils/FetchJira.jsx'
+import { useEffect, useState } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import '../styles/SideBar.css'
 
 function SideBarGroupItemSquad({title, subtitle}) {
 
-    //console.log(DataSquads.filter(o => o.title == title)[0].icon);
+
+    
+    const [initiativesDT, setInitiativesDT] = useState([]);
+    const [initiativesED, setInitiativesED] = useState([]);
+    const [initiativesOther, setInitiativesOther] = useState([]);
+
+
+    useEffect(() => {
+      
+        switch(title) {
+            case 'Delivery Tecnico':
+                FetchAllEpic("ODT").then(r =>setInitiativesDT(r)).catch(e=> console.log(e));
+                break
+            case 'Exp. Digital':
+                FetchAllEpic("OED").then(r =>setInitiativesED(r)).catch(e=> console.log(e));
+                break
+            default:
+                setInitiativesOther((DataSquads.filter(o => o.title === title)[0].initiatives).map(o => ({key:o.id, valor:o.title})))
+                break
+              }
+
+
+
+        
+        },[]);
+
+    const getInitiative = (sqad) => {
+        switch(sqad) {
+            case 'Delivery Tecnico':
+                return initiativesDT
+            case 'Exp. Digital':
+                return initiativesED
+            default:
+                return initiativesOther
+
+        }
+    };
 
     let replaceAll = i => i.replace(/[/. ]/g,"");
+    let shortText = (str) => str.length > 26 ? str.substring(0,22)+"..." : str
+    let textTransform = (str) => shortText(str.toLowerCase().split(" ").map(o => o.replace(/^./, str => str.toUpperCase())).join(" "))
  
+         
+
     return (
 
         <li className="nav-item">
@@ -19,17 +61,16 @@ function SideBarGroupItemSquad({title, subtitle}) {
         <div id={replaceAll(title)} className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">{subtitle}</h6>
+
             {
-            
-            DataSquads.filter(o => o.title == title)[0].initiatives.map((o,ix) => 
-               
-                <SideBarItem desc={o.title} link={""+o.id} key={ix} />
-                )
+
+                getInitiative(title).length < 1 
+                ? <div className='wraperLoading'><Spinner className="loadingDots" animation="border" variant="secondary"/></div>
+                : getInitiative(title).map((o,ix) => <SideBarItem desc={textTransform(o.valor)} link={o.key} key={ix} />)
+          
             
             }
-
-  
-                
+     
             </div>
         </div>
 
