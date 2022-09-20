@@ -1,4 +1,6 @@
 
+
+
 function SideBarHeadItem({text, icon, link}) {
     
     return (
@@ -9,7 +11,7 @@ function SideBarHeadItem({text, icon, link}) {
                 <i className={icon}></i>
                 <span>{text}</span>
             </a>
-            
+           
         </li>
   
         );

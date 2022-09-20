@@ -67,38 +67,34 @@
     e.preventDefault();
   });
 
-})(jQuery); // End of use strict
+})(jQuery); 
 
- 
-  $(document).ready(function() {
 
+
+// espero 1 seg a q terminen los fetch del sidebar
+
+setTimeout(
+  function() {
+  
+  // busco valores del autocomplete
   var availableTags = [];
-
-
   $(".collapse-item").each(function(indice,elemento) {
-    // crea un valor personalizado con label (texto) y value (href)
     var el = {"label":$(elemento).text(), "value":$(elemento).attr("name"),"link":$(elemento).attr("href") || "" };
     availableTags.push(el);
-   
   });
 
-  // ahora que tenemos ya los datos, crea el autocomplete
+  // creo el autocomplete
   $("#autocompletar").autocomplete({
- 
-    source: availableTags, // indica tu fuente de datos
+    source: availableTags, 
     select: function( event, ui ) {
-      // muestra el nombre indicada en el label
+      
       $( "#autocompletar" ).val( ui.item.label );
-      // redircciona al la url indicada en el value
+      
       if (ui.item.link != "" ) {
            location.assign( ui.item.link );
-           // window.open(ui.item.link)
         } else {
             CambiarSource(ui.item.value);
         }
-
-      //alert("Redireccionar a " + ui.item.value);
-      // location.assign( ui.item.value );
       return false;
     }
   });
@@ -114,53 +110,6 @@
     $("#iframePBI").attr("src",nuevoLink);
   }
 
-}
-);
 
 
-$(window).load(function() {
-
-  var availableTags = [];
-
-
-  $(".collapse-item").each(function(indice,elemento) {
-    // crea un valor personalizado con label (texto) y value (href)
-    var el = {"label":$(elemento).text(), "value":$(elemento).attr("name"),"link":$(elemento).attr("href") || "" };
-    availableTags.push(el);
-   
-  });
-
-  // ahora que tenemos ya los datos, crea el autocomplete
-  $("#autocompletar").autocomplete({
- 
-    source: availableTags, // indica tu fuente de datos
-    select: function( event, ui ) {
-      // muestra el nombre indicada en el label
-      $( "#autocompletar" ).val( ui.item.label );
-      // redircciona al la url indicada en el value
-      if (ui.item.link != "" ) {
-           location.assign( ui.item.link );
-           // window.open(ui.item.link)
-        } else {
-            CambiarSource(ui.item.value);
-        }
-
-      //alert("Redireccionar a " + ui.item.value);
-      // location.assign( ui.item.value );
-      return false;
-    }
-  });
-
-  $(".collapse-item").each(function(indice,elemento){
-    $(elemento).on("click",function(){
-      CambiarSource($(elemento).attr("name"));
-    });
-  })
-  
-  function CambiarSource(nuevoLink)
-  {
-    $("#iframePBI").attr("src",nuevoLink);
-  }
-
-}
-);
+}, 1000)

@@ -28,8 +28,6 @@ export const FetchAllEpic = async (proyect) => {
 }
 
 
-
-
 // para hoja de inciativa
 export const FetchEpicWithoutSubtask = async (epic) => {
   let reponse = await api.get('issue/'+epic)

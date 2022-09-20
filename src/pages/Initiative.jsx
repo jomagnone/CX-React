@@ -4,13 +4,11 @@ import CardOKR from '../components/CardOKR.jsx'
 import CardPending from '../components/CardPending.jsx'
 import CardDescription from '../components/CardDescription.jsx'
 import CardTaskList from '../components/CardTaskList.jsx'
-import CardEmpy from '../components/CardEmpy'
 import WrapperRow from '../components/WrapperRow.jsx'
 import WrapperContainer from '../components/WrapperContainer.jsx'
 import '../styles/Initiative.css'
 import { useParams } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap'
-
+import InitiativeSpinner from '../components/InitiativeSpinner.jsx'
 import { EpicContext } from '../contexts/EpicContext';
 import {FetchEpicWithoutSubtask} from '../utils/FetchJira.jsx'
 import { useContext,useEffect } from 'react';
@@ -24,19 +22,18 @@ function Initiative() {
       useEffect(() => {
         FetchEpicWithoutSubtask(idInit)
             .then(result => EpicFromContext.addEpic(result))
-            .catch(err => console.log("error:"+err));
+            .catch(e => e.code === "ERR_BAD_REQUEST"? window.location.replace("./NotFound"):console.log(e));
 
         }, [idInit]);
 
   
-          
-
+        
 
     return (
     <>
       {
         !EpicFromContext.epic.issues ?
-        <CardEmpy><div className='wraperLoading'><Spinner className="loadingDots" animation="border" variant="secondary"/></div></CardEmpy>
+        <InitiativeSpinner />
         :
         <WrapperContainer>
           <ContairnerHeader title={EpicFromContext.epic.title} />

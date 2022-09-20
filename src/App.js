@@ -21,12 +21,13 @@ function App() {
           <WrapperContent>
               <NavBar />
               <Routes>
-                <Route path = "" element = {<Dashboard />} />
+                <Route path = "" element = {<Journey />} />
+                <Route path = "/journey" element = {<Journey />} />
                 <Route path = "/home" element = {<Dashboard />} />
                 <Route path = "/Nosotros" element = {<About />} />
-                <Route path = "/journey" element = {<Journey />} />
+                <Route path = "/NotFound" element = {<NotFound />} />
                 <Route path = "/:idInit" element = {<Initiative />} /> 
-                <Route path = "/*" element = {<NotFound />} />
+                
   
               </Routes>
               <Footer />

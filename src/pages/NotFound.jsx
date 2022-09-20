@@ -9,8 +9,8 @@ function NotFound() {
         <div className="text-center">
             <div className="error mx-auto" data-text="404">404</div>
             <p className="lead text-gray-800 mb-5">Page Not Found</p>
-            <p className="text-gray-500 mb-0">Parece un glitch en la MATRIX...</p>
-            <a href="home">&larr; Volver al Dashboard</a>
+            <p className="text-gray-500 mb-0">No encontramos la informacion que buscas...</p>
+            <a href="/">&larr; Volver al Site</a>
           </div>
       </div>
     </div>
