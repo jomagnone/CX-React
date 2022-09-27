@@ -72,7 +72,6 @@
 
 
 // espero 1 seg a q terminen los fetch del sidebar
-
 setTimeout(
   function() {
   

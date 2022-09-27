@@ -6,7 +6,6 @@ const EpicContextProvider = ({ children }) => {
     
     const [epic, setEpic] = useState({id:"prueba"});
 
-
     const addEpic= (epic) => {
         setEpic(epic)
         localStorage.setItem("EPIC", JSON.stringify(epic));
@@ -24,17 +23,18 @@ const EpicContextProvider = ({ children }) => {
       
     }
   
-
     const getAvanceEpic = () =>{
-
         return epic.avanceEpic
     }
+
     const getPendingEpic = () =>{
         return epic.pending
     }
-
+    const getCountAllIssues = () =>{
+        return epic.countAllIssues?epic.countAllIssues:"0"
+    }
     return (
-        <EpicContext.Provider value={{getPendingEpic,getAvanceEpic,epic,addEpic,removeEpic , setAvanceIssue }}>
+        <EpicContext.Provider value={{getCountAllIssues,getPendingEpic,getAvanceEpic,epic,addEpic,removeEpic , setAvanceIssue }}>
             { children }
         </EpicContext.Provider>
     );

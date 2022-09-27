@@ -10,19 +10,23 @@ import '../styles/Initiative.css'
 import { useParams } from 'react-router-dom';
 import InitiativeSpinner from '../components/InitiativeSpinner.jsx'
 import { EpicContext } from '../contexts/EpicContext';
-import {FetchEpicWithoutSubtask} from '../utils/FetchJira.jsx'
+import {FetchEpicWithoutSubtask, FetchDefectWithoutSubtask} from '../utils/FetchJira.jsx'
 import { useContext,useEffect } from 'react';
 
 function Initiative() {
 
     const EpicFromContext = useContext(EpicContext);
-
     const { idInit } = useParams();
  
       useEffect(() => {
-        FetchEpicWithoutSubtask(idInit)
+        idInit.includes("-") 
+        ? FetchEpicWithoutSubtask(idInit)
             .then(result => EpicFromContext.addEpic(result))
-            .catch(e => e.code === "ERR_BAD_REQUEST"? window.location.replace("./NotFound"):console.log(e));
+            .catch(e => e.code === "ERR_BAD_REQUEST"? window.location.replace("./NotFound"):console.log(e))
+        : FetchDefectWithoutSubtask(idInit)
+              .then(result => EpicFromContext.addEpic(result))
+              .catch(e => e.code === "ERR_BAD_REQUEST"? window.location.replace("./NotFound"):console.log(e))
+              
 
         }, [idInit]);
 
@@ -41,7 +45,7 @@ function Initiative() {
             
             <CardProgress id="avanceIssue" value={EpicFromContext.getAvanceEpic()} />
             <CardOKR kr={EpicFromContext.epic.kr} />
-            <CardPending id="pendingIssue" q={EpicFromContext.getPendingEpic()} />
+            <CardPending id="pendingIssue" q={EpicFromContext.getPendingEpic()+" de "+ EpicFromContext.getCountAllIssues() } />
           </WrapperRow> 
           <WrapperRow>
             <CardDescription desc={EpicFromContext.epic.desc} />

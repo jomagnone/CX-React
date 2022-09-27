@@ -67,40 +67,34 @@
     e.preventDefault();
   });
 
-})(jQuery); // End of use strict
+})(jQuery); 
 
 
-  $(document).ready(function() {
 
-  // comenzamos con un contenedor de datos vacio
+// espero 1 seg a q terminen los fetch del sidebar
+
+setTimeout(
+  function() {
+  
+  // busco valores del autocomplete
   var availableTags = [];
-
-  // para cada elemento de la lista
   $(".collapse-item").each(function(indice,elemento) {
-    // crea un valor personalizado con label (texto) y value (href)
-    //var el = { "label": $(this).text(), "value": $(this).find("a").attr("name") };
     var el = {"label":$(elemento).text(), "value":$(elemento).attr("name"),"link":$(elemento).attr("href") || "" };
-    //console.log(el)
-    // añádelo a la lista
     availableTags.push(el);
   });
 
-  // ahora que tenemos ya los datos, crea el autocomplete
+  // creo el autocomplete
   $("#autocompletar").autocomplete({
-    source: availableTags, // indica tu fuente de datos
+    source: availableTags, 
     select: function( event, ui ) {
-      // muestra el nombre indicada en el label
+      
       $( "#autocompletar" ).val( ui.item.label );
-      // redircciona al la url indicada en el value
+      
       if (ui.item.link != "" ) {
            location.assign( ui.item.link );
-           // window.open(ui.item.link)
         } else {
             CambiarSource(ui.item.value);
         }
-
-      //alert("Redireccionar a " + ui.item.value);
-      // location.assign( ui.item.value );
       return false;
     }
   });
@@ -110,8 +104,12 @@
       CambiarSource($(elemento).attr("name"));
     });
   })
+  
   function CambiarSource(nuevoLink)
   {
     $("#iframePBI").attr("src",nuevoLink);
   }
-});
+
+
+
+}, 1000)

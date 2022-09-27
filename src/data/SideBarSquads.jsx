@@ -15,10 +15,8 @@ const DataSquads = [
         icon:"fas fa-store",
         initiatives:[
                     {
-                        id:"0ae6b85",
+                        id:"NotFound",
                         title:"En Construccion...",
-                      
-                        
                         }]
     },
 
@@ -26,25 +24,19 @@ const DataSquads = [
         title:"Fuerza de Trabajo",
         icon:"fas fa-person-digging",
         initiatives:[
-                    {
-                        id:"2f1fb4",
-                        title:"En Construccion...",
-                     
-                    },
+                    {id:"FMR",title:"Field Manager"},          
+                    {id:"TBX",title:"Toolbox"},
+                    {id:"OPENORD",title:"Open Ordenes"},
+                    {id:"OSSWFX",title:"Workforce"},
                     ]
     },
     {   id:"52b616a8c1a3",
         title:"Soporte / Procesos",
         icon:"fas fa-fw fa-brain",
         initiatives:[
-                    {
-                        id:"73b37e",
-                        title:"En Construccion...",
-                   
-                       
-                    },
-                   
-                    ]
+            {id:"OSSTKTS",title:"Ticketeras"},
+            {id:"OSSWFX",title:"Workforce"},
+            ]
         },
 ]
 
