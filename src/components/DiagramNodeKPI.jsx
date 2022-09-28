@@ -4,9 +4,12 @@ import '../styles/DiagramNodeKPI.css'
 
       return (
         <div className="DiagramNodeKPI">
+          <hr className="LineDotted"/>
             <div className="NodeContentTitle">{props.data.desc}</div>
-              <hr />
+          <hr className="LineDotted" />
+             {/* <hr />
             {props.data.value}
+            */} 
         </div>
       );
     };

@@ -1,0 +1,25 @@
+
+.DiagramNodeNPS {
+
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+.DiagramNodeIconNPS {
+  font-size: 60px;
+  color:#3F65D4;
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+.DiagramNodeTextNPS {
+  font-weight: 800;
+  width: 120px;
+  margin-left: -20px;
+  margin-right: -20px;
+  text-align: center;
+  overflow: hidden
+}

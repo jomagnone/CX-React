@@ -23,3 +23,67 @@
   text-align: center;
   overflow: hidden
 }
+
+
+.DiagramNodeIconFilter {
+  font-size: 20px;
+  color:#606f7b;
+  width: 80px;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+
+
+/* Tooltip container */
+.tooltipFilter {
+  position: relative;
+  display: inline-block;
+
+}
+
+/* Tooltip text */
+.tooltipFilter .tooltiptext {
+  visibility: hidden;
+  width: 70px;
+  background-color: rgba(85, 85, 85, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 1px;
+  border-radius: 6px;
+  font-size: 13px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 99;
+  bottom: 0%;
+  left: 70%;
+  margin-left: 5px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+}
+
+/* Tooltip arrow */
+.tooltipFilter .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(85, 85, 85, 0.5) transparent transparent transparent;
+  transform: rotate(90deg);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipFilter:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+
+}
+

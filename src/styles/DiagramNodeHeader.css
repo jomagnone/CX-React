@@ -14,3 +14,20 @@
   font-weight: 600;
 
 }
+
+
+.diagramNodeHeaderEnd {
+  border:.07rem solid #8795a1;
+  text-align:center;
+  width: 80px;
+  height:40px;
+  background: #dae1e7; 
+  border-radius: 5px;
+  padding: 0.5rem;
+  padding-right:15px; 
+  box-shadow:0 0.07rem 0.2rem 0 rgb(0 0 0 / 10%), 0 0.07rem 0.125rem 0 rgb(0 0 0 / 6%);
+  transition: box-shadow .25s ease-in-out,border .3s ease-out;
+  color: #606f7b;
+  font-weight: 600;
+
+}

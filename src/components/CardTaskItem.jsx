@@ -9,7 +9,7 @@ import ModalDescription from './ModalDescription.jsx';
 function CardTaskItem({issue}) {
 
 
-      const [avance, setAvance] = useState("100%");
+      const [avance, setAvance] = useState("0%");
       const [modalDescShow, setModalDescShow] = useState(false);
       const EpicFromContext = useContext(EpicContext);
       
