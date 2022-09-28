@@ -1,0 +1,21 @@
+.ImgModal {
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#ModalHeader{
+    background-color: #EDEEF1;
+    font-weight: 800px;
+}
+
+#ModalFooter{
+    background-color: #EDEEF1;
+
+}
+
+
+.listaSecundaria{
+    list-style: square;
+    margin-left: 50px;
+}

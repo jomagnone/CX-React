@@ -47,18 +47,19 @@ export const FetchEpicWithoutSubtask = async (epic) => {
     obj['status'] = reponse.data.fields.status.name;
     obj['kr'] ="Operacion Digital";
     obj['project'] = reponse.data.key.indexOf("-")? reponse.data.key.substring(0,reponse.data.key.indexOf("-")):  obj.key
-    let reponseIssues = await api.get('search?jql="Epic Link"="'+obj['title']+'"%26project='+obj['project']+'&fields=key,summary,status')
+    let reponseIssues = await api.get('search?jql="Epic Link"="'+obj['title']+'"%26project='+obj['project']+'&fields=key,summary,status,description')
     const issues = reponseIssues.data.issues.map(x => {
            let issue = {};
            let status = statusList.filter(st => st.statusIn == x.fields.status.name)[0]?.status 
            issue['key'] = x.key;
            issue['desc'] = x.fields.summary;
+           issue['fullDesc'] = x.fields.description;
            issue['status'] = status? status : x.fields.status.name;
            issue['iconStatus'] = "success";
            return issue;
        }
      )
-    obj['issues'] = issues;
+    obj['issues'] = issues.sort((a, b) => a.status > b.status? 1:-1);;
     obj['avanceEpic'] = ''+(parseInt((issues.filter(st => st.status === "Done" ).length / issues.length)*100))+'%';
     obj['avanceEpic'] = obj['avanceEpic'] === "NaN%" ? "0%" :obj['avanceEpic'] 
     obj['pending'] =''+(issues.filter(st => st.status !== "Done" ).length );
@@ -75,12 +76,13 @@ export const FetchDefectWithoutSubtask = async (project) => {
     obj['title'] = reponse.data.name;
     obj['desc'] = reponse.data.description;
     obj['kr'] =reponse.data.projectCategory.name;
-    let reponseIssues = await api.get('search?jql=project='+project+'%26issuetype=Defecto%26status!=Anulado%26status!=DEFERRED&fields=key,summary,status&maxResults=1000')
+    let reponseIssues = await api.get('search?jql=project='+project+'%26issuetype=Defecto%26status!=Anulado%26status!=DEFERRED&fields=key,summary,status,description&maxResults=1000')
     const issues = reponseIssues.data.issues.map(x => {
            let issue = {};
            let status = statusList.filter(st => st.statusIn == x.fields.status.name)[0]?.status 
            issue['key'] = x.key;
            issue['desc'] = x.fields.summary;
+           issue['fullDesc'] = x.fields.description;
            issue['status'] = status? status : x.fields.status.name;
            issue['iconStatus'] = "success";
            return issue;
@@ -91,7 +93,6 @@ export const FetchDefectWithoutSubtask = async (project) => {
     obj['avanceEpic'] = obj['avanceEpic'] === "NaN%" ? "0%" :obj['avanceEpic'] 
     obj['pending'] =''+(issues.filter(st =>  st.status !== "Done" ).length );
     obj['countAllIssues'] =''+(issues.length );
-   
     return obj;
 }
 
@@ -113,6 +114,7 @@ export const FetchIssueAvance = async (issue) => {
     )
     object.parent = issue.key;
     object.desc = issue.desc;
+    
     object.status = issue.status;
     object.avanceAllSubtask= ''+parseInt((object.subtaskList.filter(x =>  x.status === "Done" ).length / object.subtaskList.length)*100)+"%"
     object.avanceAllSubtask = object.avanceAllSubtask === "NaN%" && (object.status === "Done") ? "100%" : object.avanceAllSubtask

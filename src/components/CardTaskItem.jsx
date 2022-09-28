@@ -1,7 +1,8 @@
-
+import '../styles/CardTaskItem.css'
 import {FetchIssueAvance} from '../utils/FetchJira.jsx'
 import { useEffect, useState,useContext } from 'react';
 import { EpicContext } from '../contexts/EpicContext';
+import ModalDescription from './ModalDescription.jsx';
 
 
 
@@ -9,8 +10,9 @@ function CardTaskItem({issue}) {
 
 
       const [avance, setAvance] = useState("100%");
+      const [modalDescShow, setModalDescShow] = useState(false);
       const EpicFromContext = useContext(EpicContext);
-
+      
 
       useEffect(() => {
             FetchIssueAvance(issue)
@@ -21,11 +23,14 @@ function CardTaskItem({issue}) {
 
       }, []);
      
-      
-      
+     const handleClose = () => setModalDescShow(false);
+     const handleShow = () => {setModalDescShow(true); }
+     const handleShowTooltips = () => "na"
+
+
     return (
         <>
-            
+             
             <div className="mb-1 small">{issue.desc}</div>
             <div className="row no-gutters align-items-center">
                   <div className="col">
@@ -35,6 +40,12 @@ function CardTaskItem({issue}) {
                   </div>
                   <div className="col-auto">
                         <div className="ml-md-3 font-weight-bold text-gray-600"> {avance}</div>
+                  </div>
+                  <div id="btnInfo" className="col-auto tooltipInfo" onClick={issue.fullDesc?handleShow:handleShowTooltips}>
+                        <a  className="btn btn-info btn-circle btn-sm ml-md-3 textWhite">
+                              <i className="fas fa-info"></i>
+                        </a>
+                        <span className="tooltiptext">{issue.fullDesc?"Mas info":"Sin Datos"}</span> 
                   </div>
                   <div className="col-auto">
                         { issue.status == "Bloqueado" ? 
@@ -49,7 +60,13 @@ function CardTaskItem({issue}) {
                         
                   </div>
             </div>
-            
+            <ModalDescription
+                  show={modalDescShow}
+                  onHide={handleClose}
+                  issuekey= {issue.key}
+                  desc= {issue.fullDesc}
+                  title= {issue.desc}
+            />
             
         </>
         );
