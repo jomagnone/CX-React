@@ -46,8 +46,9 @@ export const FetchEpicWithoutSubtask = async (epic) => {
     obj['desc'] = reponse.data.fields.description;
     obj['status'] = reponse.data.fields.status.name;
     obj['kr'] ="Operacion Digital";
+    obj['epic'] = reponse.data.fields.customfield_10103
     obj['project'] = reponse.data.key.indexOf("-")? reponse.data.key.substring(0,reponse.data.key.indexOf("-")):  obj.key
-    let reponseIssues = await api.get('search?jql="Epic Link"="'+obj['title']+'"%26project='+obj['project']+'&fields=key,summary,status,description')
+    let reponseIssues = await api.get('search?jql="Epic Link"="'+obj.epic+'"%26project='+obj['project']+'&fields=key,summary,status,description')
     const issues = reponseIssues.data.issues.map(x => {
            let issue = {};
            let status = statusList.filter(st => st.statusIn == x.fields.status.name)[0]?.status 
