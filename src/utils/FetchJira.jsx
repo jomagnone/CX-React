@@ -4,21 +4,36 @@ const api = axios.create();
 api.defaults.baseURL = "https://gestioncio.telecom.com.ar/rest/api/2/";
 api.defaults.headers.common["Content-Type"] = "application/json";
 api.defaults.headers.common["Authentication"] = "OAuth 2.0";
-api.defaults.headers.common["Authorization"] = "Bearer NTMzMjc4OTY5NTk4Os3hucE5NikVqtHAfyC7FfEouRN7";
+// api.defaults.headers.common["Authorization"] = "Bearer NTMzMjc4OTY5NTk4Os3hucE5NikVqtHAfyC7FfEouRN7";
+api.defaults.headers.common["Authorization"] = "Bearer OTgwNDk0NjA1MTI1Ojf4dCNrYnafOIcxUJK+5yCR+l9K";
 
+
+
+/*
+const apiCloud = axios.create();
+api.defaults.baseURL = "https://tecocloud.telecom.com.ar/rest/api/2/";
+api.defaults.headers.common["Content-Type"] = "application/json";
+api.defaults.headers.common["Authentication"] = "OAuth 2.0";
+api.defaults.headers.common["Authorization"] = "Bearer 8ZLdQFS4C6JTxyDqcBpt29E9";
+*/
 const statusList = [{status:'Done', statusIn:'Done'},
                 {status:'Done', statusIn:'Closed'},
                 {status:'Done', statusIn:'CLOSED - REJECTED'},
                 {status:'Done', statusIn:'Fixed'},
                 {status:'Done', statusIn:'Finalizado'},
                 {status:'Done', statusIn:'Terminada'},
+                {status:'Done', statusIn:'Cerrada'},
                 {status:'Pending', statusIn:'In progress'},
                 {status:'Pending', statusIn:'Open'},
                 {status:'Pending', statusIn:'Backlog'},
+                {status:'Pending', statusIn:'Abierta'},
+                {status:'Pending', statusIn:'En progreso'},
                 {status:'Bloqueado', statusIn:'Bloqueado'},
                 {status:'Bloqueado', statusIn:'Blocked'},
                 {status:'Anulado', statusIn:'Anulado'},
-                {status:'Anulado', statusIn:'DEFERRED'}
+                {status:'Anulado', statusIn:'DEFERRED'},
+                {status:'Done', statusIn:'REJECTED'}
+                
           ]
 
 

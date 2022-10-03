@@ -1,20 +1,6 @@
 import WrapperRow from '../components/WrapperRow.jsx'
 import WrapperContainer from '../components/WrapperContainer.jsx'
 import CardDescriptionDetail from '../components/CardDescriptionDetail.jsx'
-let text = `• Proveer información mediante indicadores de Disponibilidad y Performance técnica de la red, a fin de notificar el nivel de servicio a los distintos estratos de la Compañía.
-                <br />
-                • Investigar nuevos indicadores y correlación de métricas existentes que permitan identificar oportunidades de mejora.
-                <br />
-                • Realizar el seguimiento de la evolución de los indicadores, producto de su gestión operativa.
-                <br />
-                • Interactuar con distintas áreas de la Compañía compartiendo el conocimiento técnico, en búsqueda de la mejora continua de los servicios.
-                <br />
-                • Identificar las necesidades de herramientas de monitoreo y detección de fallas para la red HFC y elaborar las definiciones funcionales de la mismas.
-                <br />
-                • Gestionar la implementación con IT y brindar soporte funcional de las herramientas de monitoreo de la red HFC.
-                <br />
-                • Gestionar la mejora continua de las métricas y umbrales que utilizan las herramientas de monitoreo HFC para el correcto diagnóstico de fallas y performance de la red.
-                <br />`
 
 
 
@@ -23,8 +9,13 @@ function About() {
     <>
     <WrapperContainer>
         <WrapperRow>
-            <CardDescriptionDetail desc={"Nuestro Objetivo como area es generar y administrar información acerca del funcionamiento y prestaciones de la infraestructura técnica, basándose en la obtención de métricas e indicadores clave adoptados por la Compañía, para la gestión y verificación de la calidad de servicio; identificar las herramientas de monitoreo, detección y diagnóstico de la red HFC utilizadas en las áreas operativas, gestionar su implementación, roadmap evolutivo y soporte funcional."} title={"Sobre Nostros"} />
-            <CardDescriptionDetail desc={text} title={"Responsabilidades"} />
+            <CardDescriptionDetail desc={"Diseñar soluciones innovadoras y eficientes que potencien la experiencia de nuestros clientes y que contribuyan a la evolución de OPR"} title={"Customer Experience"} />
+            <CardDescriptionDetail desc={"Potenciar e innovar la coordinación logística de la atención técnica, optimizando la asignación del trabajo y el cumplimiento de lo pactado con el cliente, para fortalecer su experiencia en el delivery de la última milla de nuestro servicio."} title={"Area: Delivery Tecnico"} />
+            <CardDescriptionDetail desc={"Diseñar y construir soluciones que evolucionen la interacción con los clientes a través de la digitalizacion con foco en la  experiencia omnicanal para generar cercania y un vinculo mas frecuente en el journey tecnico"} title={"Area: Exp. Digital"} />
+            <CardDescriptionDetail desc={"Idear, planificar y coordinar el despliegue de los nuevos productos, proyectos y evolutivos  en OPR.  Diseñar las estrategias de acompañamiento en las implementaciones asegurando la adopcion de los cambios y minimizando el impacto en la operacion."} title={"Area: Go 2 Market"} />
+            <CardDescriptionDetail desc={"Idear, planificar y coordinar todas las mediciones y análisis de datos para todo despliegue de nuevos productos, proyectos y evolutivos en OPR; como así también soporte de análisis para la búsqueda continua de oportunidades de mejora en los procesos actuales."} title={"Area: Analitycs"} />
+            <CardDescriptionDetail desc={"Liderar el desarrollo del producto Field Service Management, en el marco de un equipo agil  e integrado al ecosistema de la Tribu OSS. Coordinar de las dependencias con los Squads del Cluster WFM y las interdependencias con la Tribu Clientes."} title={"Area: Fuerza de Trabajo"} />
+            <CardDescriptionDetail desc={"Soporte y evolución de los procesos técnicos de OPR, identificando oportunidades que potencien la experiencia y eficiencia con mirada punta a punta del Journey del cliente."} title={"Area: Soporte y Procesos"} />
         </WrapperRow>
     </WrapperContainer>
     </>
