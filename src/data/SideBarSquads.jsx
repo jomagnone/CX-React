@@ -19,6 +19,11 @@ const DataSquads = [
                         title:"En Construccion...",
                         }]
     },
+    {   
+        id:"dd8cfcsdw9d",
+        title:"OPR Mejora Continua",    
+        icon:"fas fa-arrows-rotate",
+    },
 
     {   id:"2e2f0ae6b85d",
         title:"Fuerza de Trabajo",

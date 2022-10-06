@@ -13,6 +13,8 @@ function SideBarGroupItemSquad({title, subtitle}) {
     const handleClose = () => window.location.reload();
     const [initiativesDT, setInitiativesDT] = useState([]);
     const [initiativesED, setInitiativesED] = useState([]);
+    const [initiativesGM, setInitiativesGM] = useState([]);
+    const [initiativesMC, setInitiativesMC] = useState([]);
     const [initiativesOther, setInitiativesOther] = useState([]);
 
 
@@ -26,6 +28,12 @@ function SideBarGroupItemSquad({title, subtitle}) {
                 break
             case 'Exp. Digital':
                 FetchAllEpic("OED").then(r =>setInitiativesED(r)).catch(e=> console.log(e));
+                break
+            case 'Go 2 Market':
+                FetchAllEpic("OGM").then(r =>setInitiativesGM(r)).catch(e=> console.log(e));
+                break
+            case 'OPR Mejora Continua':
+                FetchAllEpic("OMCYS").then(r =>setInitiativesMC(r)).catch(e=> console.log(e));
                 break
             default:
                 setInitiativesOther((DataSquads.filter(o => o.title === title)[0].initiatives).map(o => ({key:o.id, valor:o.title})))
@@ -43,6 +51,10 @@ function SideBarGroupItemSquad({title, subtitle}) {
                 return initiativesDT
             case 'Exp. Digital':
                 return initiativesED
+            case 'Go 2 Market':
+                return initiativesGM
+            case 'OPR Mejora Continua':
+                return initiativesMC
             default:
                 return initiativesOther
 
@@ -50,7 +62,7 @@ function SideBarGroupItemSquad({title, subtitle}) {
     };
 
     let replaceAll = i => i.replace(/[/. ]/g,"");
-    let shortText = (str) => str.length > 26 ? str.substring(0,22)+"..." : str
+    let shortText = (str) => str.length > 24 ? str.substring(0,22)+"..." : str
     let textTransform = (str) => shortText(str.toLowerCase().split(" ").map(o => o.replace(/^./, str => str.toUpperCase())).join(" "))
  
          

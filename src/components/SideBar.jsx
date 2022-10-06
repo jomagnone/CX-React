@@ -28,6 +28,7 @@ function SideBar() {
             <SideBarGroupItemSquad title={"Delivery Tecnico"} subtitle={"Listado de Iniciativas:"} />
             <SideBarGroupItemSquad title={"Exp. Digital"} subtitle={"Listado de Iniciativas:"} />
             <SideBarGroupItemSquad title={"Go 2 Market"} subtitle={"Listado de Iniciativas:"} />
+            <SideBarGroupItemSquad title={"OPR Mejora Continua"} subtitle={"Listado de Iniciativas:"} />
             <SideBarDividerElement />
             <SideBarDividerText text ={"Defectos atendidos"} />
             <SideBarGroupItemSquad title={"Fuerza de Trabajo"} subtitle={"Listado de Defectos:"} />

@@ -4,10 +4,7 @@ const api = axios.create();
 api.defaults.baseURL = "https://gestioncio.telecom.com.ar/rest/api/2/";
 api.defaults.headers.common["Content-Type"] = "application/json";
 api.defaults.headers.common["Authentication"] = "OAuth 2.0";
-// api.defaults.headers.common["Authorization"] = "Bearer NTMzMjc4OTY5NTk4Os3hucE5NikVqtHAfyC7FfEouRN7";
-api.defaults.headers.common["Authorization"] = "Bearer OTgwNDk0NjA1MTI1Ojf4dCNrYnafOIcxUJK+5yCR+l9K";
-
-
+api.defaults.headers.common["Authorization"] = "Bearer NTMzMjc4OTY5NTk4Os3hucE5NikVqtHAfyC7FfEouRN7";
 
 /*
 const apiCloud = axios.create();
