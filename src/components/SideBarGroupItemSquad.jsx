@@ -19,30 +19,30 @@ function SideBarGroupItemSquad({title, subtitle}) {
 
 
     useEffect(() => {
-      
+        //console.log(DataSquads.filter(o => o.title === title)[0].id);
         switch(title) {
             case 'Delivery Tecnico':
-                FetchAllEpic("ODT")
+                FetchAllEpic(DataSquads.filter(o => o.title === title)[0].id)
                         .then(r =>setInitiativesDT(r))
                         .catch(e => e?setModalShow(true): console.log(e))
                 break
             case 'Exp. Digital':
-                FetchAllEpic("OED").then(r =>setInitiativesED(r)).catch(e=> console.log(e));
+                FetchAllEpic(DataSquads.filter(o => o.title === title)[0].id).then(r =>setInitiativesED(r)).catch(e=> console.log(e));
                 break
             case 'Go 2 Market':
-                FetchAllEpic("OGM").then(r =>setInitiativesGM(r)).catch(e=> console.log(e));
+                FetchAllEpic(DataSquads.filter(o => o.title === title)[0].id).then(r =>setInitiativesGM(r)).catch(e=> console.log(e));
                 break
-            case 'OPR Mejora Continua':
-                FetchAllEpic("OMCYS").then(r =>setInitiativesMC(r)).catch(e=> console.log(e));
+            case 'Mejora Continua':
+                let defect = (DataSquads.filter(o => o.title === title)[0].initiatives).map(o => ({key:o.id, valor:o.title}))
+                FetchAllEpic(DataSquads.filter(o => o.title === title)[0].id)
+                        .then(r =>setInitiativesMC(r.concat(defect)))
+                        .catch(e=> console.log(e));
                 break
             default:
                 setInitiativesOther((DataSquads.filter(o => o.title === title)[0].initiatives).map(o => ({key:o.id, valor:o.title})))
                 break
               }
 
-
-
-        
         },[]);
 
     const getInitiative = (sqad) => {
@@ -53,7 +53,7 @@ function SideBarGroupItemSquad({title, subtitle}) {
                 return initiativesED
             case 'Go 2 Market':
                 return initiativesGM
-            case 'OPR Mejora Continua':
+            case 'Mejora Continua':
                 return initiativesMC
             default:
                 return initiativesOther
@@ -88,11 +88,10 @@ function SideBarGroupItemSquad({title, subtitle}) {
 
                 getInitiative(title).length < 1 
                 ? <div className='wraperLoading'><Spinner className="loadingDots" animation="border" variant="secondary"/></div>
-                : getInitiative(title).map((o,ix) => <SideBarItem desc={textTransform(o.valor)} link={o.key} key={ix} />)
-          
-            
+                : getInitiative(title).map((o,ix) => o.key === "divider" ? <h6 key={ix} className="collapse-header">{o.valor}</h6> : <SideBarItem desc={textTransform(o.valor)} link={o.key} key={ix} />)
+                 
             }
-     
+           
             </div>
         </div>
 

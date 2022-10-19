@@ -1,33 +1,43 @@
 // SQAD --> Iniciativas --> Tareas
 
 const DataSquads = [
-    {   id:"d47529b8aabd",
+    {   id:"ODT",
         title:"Delivery Tecnico",
+        subtitle: "Listado de Iniciativas:",
         icon:"fas fa-truck-fast",
+        oneProject: true
     },
    
-    {   id:"dd8cfcbd5c9d",
+    {   id:"OED",
         title:"Exp. Digital",
+        subtitle: "Listado de Iniciativas:",
         icon:"fas fa-laptop",
+        oneProject: true
     },
-    {   id:"1d14ae889efe",
+    {   id:"OGM",
         title:"Go 2 Market",
+        subtitle: "Listado de Iniciativas:",
         icon:"fas fa-store",
-        initiatives:[
-                    {
-                        id:"NotFound",
-                        title:"En Construccion...",
-                        }]
+        oneProject: true
     },
     {   
-        id:"dd8cfcsdw9d",
-        title:"OPR Mejora Continua",    
-        icon:"fas fa-arrows-rotate",
+        id:"OMCYS",
+        title:"Mejora Continua",    
+        subtitle: "Listado de Iniciativas:",
+        icon:"fas fa-fw fa-brain",
+        oneProject: true,
+        initiatives:[
+            {id:"divider",title:"Listado de Soportes:"},
+            {id:"OSSTKTS",title:"Ticketeras"},
+            {id:"OSSWFX",title:"Workforce"},
+            ]
     },
 
     {   id:"2e2f0ae6b85d",
         title:"Fuerza de Trabajo",
+        subtitle: "Listado de Defectos:",
         icon:"fas fa-person-digging",
+        oneProject: false,
         initiatives:[
                     {id:"FMR",title:"Field Manager"},          
                     {id:"TBX",title:"Toolbox"},
@@ -35,14 +45,7 @@ const DataSquads = [
                     {id:"OSSWFX",title:"Workforce"},
                     ]
     },
-    {   id:"52b616a8c1a3",
-        title:"Soporte / Procesos",
-        icon:"fas fa-fw fa-brain",
-        initiatives:[
-            {id:"OSSTKTS",title:"Ticketeras"},
-            {id:"OSSWFX",title:"Workforce"},
-            ]
-        },
+
 ]
 
 
