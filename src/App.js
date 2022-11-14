@@ -27,6 +27,7 @@ function App() {
                 <Route path = "/home" element = {<UnderConstruction />} />
                 <Route path = "/Nosotros" element = {<About />} />
                 <Route path = "/NotFound" element = {<NotFound />} />
+                <Route path = "/Dashboard" element = {<Dashboard />} />
                 <Route path = "/:idInit" element = {<Initiative />} /> 
                 
   

@@ -13,6 +13,7 @@ api.defaults.headers.common["Content-Type"] = "application/json";
 api.defaults.headers.common["Authentication"] = "OAuth 2.0";
 api.defaults.headers.common["Authorization"] = "Bearer 8ZLdQFS4C6JTxyDqcBpt29E9";
 */
+
 const statusList = [{status:'Done', statusIn:'Done'},
                 {status:'Done', statusIn:'Closed'},
                 {status:'Done', statusIn:'CLOSED - REJECTED'},
