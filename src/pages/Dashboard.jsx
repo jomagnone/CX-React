@@ -30,7 +30,7 @@ function Dashboard() {
                 width="100%" 
                 height="620" 
                 vertical-align="top" 
-                src="https://app.powerbi.com/view?r=eyJrIjoiYzAwNDZlOGUtODk4OS00N2YwLTlhNzctMmEyNjI1NGMzMmY2IiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9" 
+                src="https://app.powerbi.com/view?r=eyJrIjoiZjlmNTNhMDQtNjFhNS00ZTAyLTlkNmQtMmQzMzIxMWY5Y2U4IiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9" 
                 id ="iframePBI"  
                 frameBorder="0" 
                 allowFullScreen={false} >  
