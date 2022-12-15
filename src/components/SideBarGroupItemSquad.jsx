@@ -1,7 +1,7 @@
 import DataSquads from '../data/SideBarSquads.jsx'
 import SideBarItem from './SideBarItem.jsx';
 import ModalAlert from './ModalAlert.jsx';
-import {FetchAllEpic} from '../utils/FetchJira.jsx'
+import {FetchAllEpic, AuthorizeConnection,FetchCloudAllProject} from '../utils/FetchJira.jsx'
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import '../styles/SideBar.css'
@@ -18,8 +18,11 @@ function SideBarGroupItemSquad({title, subtitle}) {
     const [initiativesOther, setInitiativesOther] = useState([]);
 
 
+
     useEffect(() => {
         //console.log(DataSquads.filter(o => o.title === title)[0].id);
+        //AuthorizeConnection(FetchCloudAllProject)
+    
         switch(title) {
             case 'Delivery Tecnico':
                 FetchAllEpic(DataSquads.filter(o => o.title === title)[0].id)

@@ -27,7 +27,7 @@ function ModalAlert(props) {
         <ul>
           <li><img src={VPN} className="ImgModal"/>VPN Cisco AnyConnect <a href="https://www.cisco.com/c/en/us/support/security/anyconnect-secure-mobility-client-v4-x/model.html#~tab-downloads" target="_blank"><i class="fa-solid fa-download"></i></a> </li>
           <br></br>
-          <li><img src={CORS} className="ImgModal"/>CORS Unlock <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" target="_blank"><i class="fa-solid fa-download"></i></a>  </li>
+          <li><img src={CORS} className="ImgModal"/>CORS Unlock <a href="https://chrome.google.com/webstore/detail/cross-domain-cors/mjhpgnbimicffchbodmgfnemoghjakai" target="_blank"><i class="fa-solid fa-download"></i></a>  </li>
         </ul>
       </Modal.Body>
       <Modal.Footer id = "ModalFooter">

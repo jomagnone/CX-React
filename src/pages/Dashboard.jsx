@@ -1,42 +1,24 @@
 import WrapperRow from '../components/WrapperRow.jsx'
 import WrapperContainer from '../components/WrapperContainer.jsx'
-import CardPBI from '../components/CardPBI.jsx'
+import ContairnerHeader from '../components/ContairnerHeader.jsx'
+import CardEmpy from '../components/CardEmpy.jsx'
 
 
 
-function Dashboard() {
+function Journey() {
     return (
     
     <>
 
-        <WrapperContainer>
-          <WrapperRow>
-
-            <CardPBI>
-             {/* 
-             <iframe 
-                title="Iframe" 
-                width="100%" 
-                height="620" 
-                vertical-align="top" 
-                src="https://app.powerbi.com/view?r=eyJrIjoiNmYyNDkxNGEtMTViMi00NTI5LThkNWQtMTAzZDdhODllYTBlIiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9" 
-                id ="iframePBI" 
-                frameBorder="0" 
-                allowFullScreen={true} >
-             </iframe> 
-             */}
-             <iframe 
-                title="Iframe" 
-                width="100%" 
-                height="620" 
-                vertical-align="top" 
-                src="https://app.powerbi.com/view?r=eyJrIjoiZjlmNTNhMDQtNjFhNS00ZTAyLTlkNmQtMmQzMzIxMWY5Y2U4IiwidCI6ImUwNzc5ZGVmLWViOTEtNDI0Mi1hZTZhLWYzOTYyYjFhMWI1YSIsImMiOjR9" 
-                id ="iframePBI"  
-                frameBorder="0" 
-                allowFullScreen={false} >  
-              </iframe>
-      
-            </CardPBI>
+     
+          <WrapperContainer>
+            <ContairnerHeader title={"Dashboard - Avance de OKR's"} />
+            <WrapperRow>
+    
+                <CardEmpy>
+                    lalalallala
+                </CardEmpy>
+            
 
           </WrapperRow>
 
@@ -46,4 +28,4 @@ function Dashboard() {
         );
   }
   
-  export default Dashboard;
+  export default Journey;
